@@ -12,7 +12,8 @@ public class Cards {
     //math.Random that picks a random item from suitArray
         String chosenSuit = suitArray[(int)(Math.random() * suitArray.length)];
 
-
+        JOptionPane.showMessageDialog(null, "2 = +2 card \nJack = skips a player \nKing = Reverses direction \nAce = Can be placed on any suit or number and changes type" +
+                "\nQueen = Next player MUST match the suit of the Queen card", "Rules of Lives!",  JOptionPane.INFORMATION_MESSAGE);
         //adapted from https://stackoverflow.com/questions/25150199/pick-a-random-element-from-a-string-array
         //math.Random that picks a random item from cardType
 
@@ -22,6 +23,9 @@ public class Cards {
         String outputCard = chosenType +" of " + chosenSuit;
 
         JOptionPane.showMessageDialog(null, outputCard);
+
+
+        //
 
     }
 }
