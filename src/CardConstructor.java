@@ -1,10 +1,8 @@
 public class CardConstructor {
     private String suitOfCard;
-    private String cardColour;
-    private int valueOfCard;
+    private String valueOfCard;
 
-    public CardConstructor(String suitOfCard, String cardColour, int valueOfCard){
-        setCardColour(cardColour);
+    public CardConstructor(String suitOfCard, String valueOfCard){
         setSuitOfCard(suitOfCard);
         setValueOfCard(valueOfCard);
     }
@@ -17,23 +15,16 @@ public class CardConstructor {
         this.suitOfCard = suitOfCard;
     }
 
-    public String getCardColour() {
-        return cardColour;
-    }
 
-    public void setCardColour(String cardColour) {
-        this.cardColour = cardColour;
-    }
-
-    public int getValueOfCard() {
+    public String getValueOfCard() {
         return valueOfCard;
     }
 
-    public void setValueOfCard(int valueOfCard) {
+    public void setValueOfCard(String valueOfCard) {
         this.valueOfCard = valueOfCard;
     }
 
     public String toString() {
-        return "Your card is " + cardColour + suitOfCard + valueOfCard;
+        return "Your card is " + valueOfCard + " Of" + suitOfCard;
     }
 }

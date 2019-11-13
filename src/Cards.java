@@ -36,6 +36,7 @@ public class Cards{
 
         public void actionPerformed(ActionEvent e)
         {
+            CardConstructor clubAce = new CardConstructor("Club", "Ace");
             //suits of cards
             String[] deck = new String[]{"Ace of Clubs", "Queen of Clubs", "Jack of Clubs", "King of Clubs", "Two of Clubs", "Three of Clubs", "Four of Clubs",
                     "Five of Clubs", "Six of Clubs", "Seven of Clubs", "Eight of Clubs", "Nine of Clubs", "Ten of Clubs", "Ace of Spades", "Queen of Spades",
