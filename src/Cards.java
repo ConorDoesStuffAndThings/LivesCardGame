@@ -11,7 +11,7 @@ public class Cards{
     JButton pickUpCardbtn;
     JButton exitBtn;
     JFrame windowForLives;
-    CardConstructor[] cards52 = new CardConstructor[52];
+    CardClass[] cards52 = new CardClass[52];
 
 
 
@@ -40,63 +40,63 @@ public class Cards{
 
     //method to generate cards
     public void generateCards(){
-        cards52[0] = new CardConstructor("Clubs", "Ace", true);
-        cards52[1] = new CardConstructor("Clubs", "Two", true);
-        cards52[2] = new CardConstructor("Clubs", "Three", true);
-        cards52[3] = new CardConstructor("Clubs", "Four", true);
-        cards52[4] = new CardConstructor("Clubs", "Five", true);
-        cards52[5] = new CardConstructor("Clubs", "Six", true);
-        cards52[6] = new CardConstructor("Clubs", "Seven", true);
-        cards52[7] = new CardConstructor("Clubs", "Eight", true);
-        cards52[8] = new CardConstructor("Clubs", "Nine", true);
-        cards52[9] = new CardConstructor("Clubs", "Ten", true);
-        cards52[10] = new CardConstructor("Clubs", "King", true);
-        cards52[11] = new CardConstructor("Clubs", "Queen", true);
-        cards52[12] = new CardConstructor("Clubs", "Jack", true);
-        cards52[13] = new CardConstructor("Hearts", "Ace", true);
-        cards52[14] = new CardConstructor("Hearts", "Two", true);
-        cards52[15] = new CardConstructor("Hearts", "Three", true);
-        cards52[16] = new CardConstructor("Hearts", "Four", true);
-        cards52[17] = new CardConstructor("Hearts", "Five", true);
-        cards52[18] = new CardConstructor("Hearts", "Six", true);
-        cards52[19] = new CardConstructor("Hearts", "Seven", true);
-        cards52[20] = new CardConstructor("Hearts", "Eight", true);
-        cards52[21] = new CardConstructor("Hearts", "Nine", true);
-        cards52[22] = new CardConstructor("Hearts", "Ten", true);
-        cards52[23] = new CardConstructor("Hearts", "King", true);
-        cards52[24] = new CardConstructor("Hearts", "Queen", true);
-        cards52[25] = new CardConstructor("Hearts", "Jack", true);
-        cards52[26] = new CardConstructor("Spades", "Ace", true);
-        cards52[27] = new CardConstructor("Spades", "Two", true);
-        cards52[28] = new CardConstructor("Spades", "Three", true);
-        cards52[29] = new CardConstructor("Spades", "Four", true);
-        cards52[30] = new CardConstructor("Spades", "Five", true);
-        cards52[31] = new CardConstructor("Spades", "Six", true);
-        cards52[32] = new CardConstructor("Spades", "Seven", true);
-        cards52[33] = new CardConstructor("Spades", "Eight", true);
-        cards52[34] = new CardConstructor("Spades", "Nine", true);
-        cards52[35] = new CardConstructor("Spades", "Ten", true);
-        cards52[36] = new CardConstructor("Spades", "King", true);
-        cards52[37] = new CardConstructor("Spades", "Queen", true);
-        cards52[38] = new CardConstructor("Spades", "Jack", true);
-        cards52[39] = new CardConstructor("Diamonds", "Ace", true);
-        cards52[40] = new CardConstructor("Diamonds", "Two", true);
-        cards52[41] = new CardConstructor("Diamonds", "Three", true);
-        cards52[42] = new CardConstructor("Diamonds", "Four", true);
-        cards52[43] = new CardConstructor("Diamonds", "Five", true);
-        cards52[44] = new CardConstructor("Diamonds", "Six", true);
-        cards52[45] = new CardConstructor("Diamonds", "Seven", true);
-        cards52[46] = new CardConstructor("Diamonds", "Eight", true);
-        cards52[47] = new CardConstructor("Diamonds", "Nine", true);
-        cards52[48] = new CardConstructor("Diamonds", "Ten", true);
-        cards52[49] = new CardConstructor("Diamonds", "King", true);
-        cards52[50] = new CardConstructor("Diamonds", "Queen", true);
-        cards52[51] = new CardConstructor("Diamonds", "Jack", true);
+        cards52[0] = new CardClass("Clubs", "Ace", true);
+        cards52[1] = new CardClass("Clubs", "Two", true);
+        cards52[2] = new CardClass("Clubs", "Three", true);
+        cards52[3] = new CardClass("Clubs", "Four", true);
+        cards52[4] = new CardClass("Clubs", "Five", true);
+        cards52[5] = new CardClass("Clubs", "Six", true);
+        cards52[6] = new CardClass("Clubs", "Seven", true);
+        cards52[7] = new CardClass("Clubs", "Eight", true);
+        cards52[8] = new CardClass("Clubs", "Nine", true);
+        cards52[9] = new CardClass("Clubs", "Ten", true);
+        cards52[10] = new CardClass("Clubs", "King", true);
+        cards52[11] = new CardClass("Clubs", "Queen", true);
+        cards52[12] = new CardClass("Clubs", "Jack", true);
+        cards52[13] = new CardClass("Hearts", "Ace", true);
+        cards52[14] = new CardClass("Hearts", "Two", true);
+        cards52[15] = new CardClass("Hearts", "Three", true);
+        cards52[16] = new CardClass("Hearts", "Four", true);
+        cards52[17] = new CardClass("Hearts", "Five", true);
+        cards52[18] = new CardClass("Hearts", "Six", true);
+        cards52[19] = new CardClass("Hearts", "Seven", true);
+        cards52[20] = new CardClass("Hearts", "Eight", true);
+        cards52[21] = new CardClass("Hearts", "Nine", true);
+        cards52[22] = new CardClass("Hearts", "Ten", true);
+        cards52[23] = new CardClass("Hearts", "King", true);
+        cards52[24] = new CardClass("Hearts", "Queen", true);
+        cards52[25] = new CardClass("Hearts", "Jack", true);
+        cards52[26] = new CardClass("Spades", "Ace", true);
+        cards52[27] = new CardClass("Spades", "Two", true);
+        cards52[28] = new CardClass("Spades", "Three", true);
+        cards52[29] = new CardClass("Spades", "Four", true);
+        cards52[30] = new CardClass("Spades", "Five", true);
+        cards52[31] = new CardClass("Spades", "Six", true);
+        cards52[32] = new CardClass("Spades", "Seven", true);
+        cards52[33] = new CardClass("Spades", "Eight", true);
+        cards52[34] = new CardClass("Spades", "Nine", true);
+        cards52[35] = new CardClass("Spades", "Ten", true);
+        cards52[36] = new CardClass("Spades", "King", true);
+        cards52[37] = new CardClass("Spades", "Queen", true);
+        cards52[38] = new CardClass("Spades", "Jack", true);
+        cards52[39] = new CardClass("Diamonds", "Ace", true);
+        cards52[40] = new CardClass("Diamonds", "Two", true);
+        cards52[41] = new CardClass("Diamonds", "Three", true);
+        cards52[42] = new CardClass("Diamonds", "Four", true);
+        cards52[43] = new CardClass("Diamonds", "Five", true);
+        cards52[44] = new CardClass("Diamonds", "Six", true);
+        cards52[45] = new CardClass("Diamonds", "Seven", true);
+        cards52[46] = new CardClass("Diamonds", "Eight", true);
+        cards52[47] = new CardClass("Diamonds", "Nine", true);
+        cards52[48] = new CardClass("Diamonds", "Ten", true);
+        cards52[49] = new CardClass("Diamonds", "King", true);
+        cards52[50] = new CardClass("Diamonds", "Queen", true);
+        cards52[51] = new CardClass("Diamonds", "Jack", true);
     }//end of generateCards method
 
 
-    public CardConstructor dealACard(){
-        CardConstructor card;
+    public CardClass dealACard(){
+        CardClass card;
         Random r = new Random(52);
         int i = r.nextInt();
         card = cards52[i];

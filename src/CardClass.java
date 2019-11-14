@@ -1,17 +1,11 @@
-public class CardConstructor {
+public class CardClass {
     private String suitOfCard;
     private String valueOfCard;
     private boolean available;
 
-    public void setAvailable(boolean available) {
-        this.available = available;
-    }
 
-    public boolean isAvailable() {
-        return available;
-    }
 
-    public CardConstructor(String suitOfCard, String valueOfCard, boolean available){
+    public CardClass(String suitOfCard, String valueOfCard, boolean available){
         setSuitOfCard(suitOfCard);
         setValueOfCard(valueOfCard);
         setAvailable(available);
@@ -37,4 +31,13 @@ public class CardConstructor {
     public String toString() {
         return "Your card is " + valueOfCard + " Of" + suitOfCard;
     }
+
+    public void setAvailable(boolean available) {
+        this.available = available;
+    }
+
+    public boolean isAvailable() {
+        return available;
+    }
+
 }
