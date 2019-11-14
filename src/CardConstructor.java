@@ -1,10 +1,20 @@
 public class CardConstructor {
     private String suitOfCard;
     private String valueOfCard;
+    private boolean available;
 
-    public CardConstructor(String suitOfCard, String valueOfCard){
+    public void setAvailable(boolean available) {
+        this.available = available;
+    }
+
+    public boolean isAvailable() {
+        return available;
+    }
+
+    public CardConstructor(String suitOfCard, String valueOfCard, boolean available){
         setSuitOfCard(suitOfCard);
         setValueOfCard(valueOfCard);
+        setAvailable(available);
     }
 
     public String getSuitOfCard() {
