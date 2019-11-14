@@ -29,15 +29,14 @@ public class CardClass {
     }
 
     public String toString() {
-        return "Your card is " + valueOfCard + " Of" + suitOfCard;
-    }
-
-    public void setAvailable(boolean available) {
-        this.available = available;
+        return "Your card is " + valueOfCard + " Of " + suitOfCard;
     }
 
     public boolean isAvailable() {
         return available;
     }
 
+    public void setAvailable(boolean available) {
+        this.available = available;
+    }
 }
