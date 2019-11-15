@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.util.Random;
 
-public class Cards{
+public class Cards extends JFrame{
     JButton pickUpCardbtn;
     JButton exitBtn;
     JFrame windowForLives;
@@ -17,26 +17,40 @@ public class Cards{
         generateCards();
 
         windowForLives = new JFrame("Lives");
-        GridLayout gridLayout = new GridLayout();
-        windowForLives.setLayout(gridLayout);
+        GridBagLayout myLayout = new GridBagLayout();
+        windowForLives.setLayout(myLayout);
         windowForLives.setSize(800,400);
         windowForLives.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JButton pickUpCardbtn = new JButton("");
-        //pickUpCardbtn.setSize(50, 100);
+        JButton exitBtn = new JButton("Exit");
 
+        //adapted from https://stackoverflow.com/questions/45722445/how-to-set-jframe-to-full-screen
+        windowForLives.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
+        //from java API
+        windowForLives.setResizable(false);
+
+        //adapted from https://stackoverflow.com/questions/16756903/how-to-set-the-location-of-a-button-anywhere-in-your-jframe/16756933
+        exitBtn.setLocation(12, 371);
+        pickUpCardbtn.setPreferredSize(new Dimension(200, 400));
 
         //line of code adapted from https://stackoverflow.com/questions/4801386/how-do-i-add-an-image-to-a-jbutton
         pickUpCardbtn.setIcon(new ImageIcon(this.getClass().getResource("/images/red_back.png")));
 
-        CardEventHandler handler = new CardEventHandler();
-        pickUpCardbtn.addActionListener(handler);
+        //call event handlers
+        PickUpCardEventHandler pickUpHandler = new PickUpCardEventHandler();
+        ExitGameHandler exitHandler = new ExitGameHandler();
+
 
         windowForLives.setVisible(true);
 
-        JButton exitBtn = new JButton("Exit");
-        windowForLives.add(pickUpCardbtn, exitBtn);
-        exitBtn.addActionListener(handler);
+        //add action listener to button
+        pickUpCardbtn.addActionListener(pickUpHandler);
+        exitBtn.addActionListener(exitHandler);
+
+        //add buttons to the JFrame
+        windowForLives.add(pickUpCardbtn);
+        windowForLives.add(exitBtn);
     }
     //outer for loop going through suits
     //inner for loop going through types
@@ -114,27 +128,27 @@ public class Cards{
 
         //add in card abilities
         if(currentCard.getValueOfCard().equals("Two")){
-            JOptionPane.showMessageDialog(null, "Next player gets 2 more cards");
+            JOptionPane.showMessageDialog(null, "Next player gets 2 more cards " + currentCard.isAvailable());
         }
 
         else if(currentCard.getValueOfCard().equals("Jack")){
-            JOptionPane.showMessageDialog(null, "Next player in rotation gets skipped");
+            JOptionPane.showMessageDialog(null, "Next player in rotation gets skipped "+ currentCard.isAvailable());
         }
 
         else if(currentCard.getValueOfCard().equals("King")){
-            JOptionPane.showMessageDialog(null, "The Direction gets reversed");
+            JOptionPane.showMessageDialog(null, "The Direction gets reversed "+ currentCard.isAvailable());
         }
 
         else if(currentCard.getValueOfCard().equals("Ace")){
-            JOptionPane.showMessageDialog(null, "Player who placed card can chose what suit the next card played is");
+            JOptionPane.showMessageDialog(null, "Player who placed card can chose what suit the next card played is "+ currentCard.isAvailable());
         }
 
         else if(currentCard.getValueOfCard().equals("Queen")){
-            JOptionPane.showMessageDialog(null, "The next player must place a " + dealACard() + " or pick up a card");
+            JOptionPane.showMessageDialog(null, "The next player must place a " + dealACard() + " or pick up a card "+ currentCard.isAvailable());
         }
 
         else{
-            JOptionPane.showMessageDialog(null, "Play as standard");
+            JOptionPane.showMessageDialog(null, "Play as standard "+ currentCard.isAvailable());
         }
     }//end of checkLivesRules
 
@@ -144,11 +158,19 @@ public class Cards{
 
 
 
-    private class CardEventHandler implements ActionListener{
+    private class PickUpCardEventHandler implements ActionListener{
 
         public void actionPerformed(ActionEvent e)
         {
             checkLivesRules();
+        }
+    }
+
+    private class ExitGameHandler implements ActionListener{
+
+        public void actionPerformed(ActionEvent e)
+        {
+            System.exit(0);
         }
     }
 }
