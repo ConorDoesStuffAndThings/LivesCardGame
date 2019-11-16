@@ -1,14 +1,18 @@
+import javax.swing.*;
+
 public class CardClass {
     private String suitOfCard;
     private String valueOfCard;
     private boolean available;
+    private ImageIcon image;
 
 
 
-    public CardClass(String suitOfCard, String valueOfCard, boolean available){
+    public CardClass(String suitOfCard, String valueOfCard, boolean available, ImageIcon image){
         setSuitOfCard(suitOfCard);
         setValueOfCard(valueOfCard);
         setAvailable(available);
+        setImage(image);
     }
 
     public String getSuitOfCard() {
@@ -38,5 +42,13 @@ public class CardClass {
 
     public void setAvailable(boolean available) {
         this.available = available;
+    }
+
+    public ImageIcon getImage() {
+        return image;
+    }
+
+    public void setImage(ImageIcon image) {
+        this.image = image;
     }
 }
