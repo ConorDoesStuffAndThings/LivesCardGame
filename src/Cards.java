@@ -9,6 +9,7 @@ import java.util.Random;
 public class Cards extends JFrame implements LivesIn{
     JButton pickUpCardBtn;
     JButton exitBtn;
+    JLabel player2Cards;
     JFrame windowForLives;
     CardClass[] cards52 = new CardClass[52];
 
@@ -17,19 +18,10 @@ public class Cards extends JFrame implements LivesIn{
 
         windowForLives = new JFrame("Lives");
         windowForLives.setLayout(null);
-        windowForLives.setSize(800,400);
         windowForLives.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JButton pickUpCardBtn = new JButton("");
         JButton exitBtn = new JButton("Exit");
         JLabel player2Cards = new JLabel(new ImageIcon("/images/back_cards.png"));
-
-
-
-
-
-
-
-
 
         //adapted from https://stackoverflow.com/questions/45722445/how-to-set-jframe-to-full-screen
         windowForLives.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -181,20 +173,21 @@ public class Cards extends JFrame implements LivesIn{
 
 
 
-
+    //EventHandler for PickUpCard
     private class PickUpCardEventHandler implements ActionListener{
 
         public void actionPerformed(ActionEvent e)
         {
             checkLivesRules();
         }
-    }
+    }// end of PickUpCardEventHandler
 
+    //handler to exit game
     private class ExitGameHandler implements ActionListener{
 
         public void actionPerformed(ActionEvent e)
         {
             System.exit(0);
         }
-    }
+    }//end of ExitGameHandler
 }

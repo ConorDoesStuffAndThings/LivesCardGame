@@ -1,13 +1,15 @@
 import javax.swing.*;
 
 public class CardClass {
+
+    //creating variable for CardClass object
     private String suitOfCard;
     private String valueOfCard;
     private boolean available;
     private ImageIcon image;
 
 
-
+    //constructor
     public CardClass(String suitOfCard, String valueOfCard, boolean available, ImageIcon image){
         setSuitOfCard(suitOfCard);
         setValueOfCard(valueOfCard);
@@ -15,6 +17,7 @@ public class CardClass {
         setImage(image);
     }
 
+    //getters and setters
     public String getSuitOfCard() {
         return suitOfCard;
     }
