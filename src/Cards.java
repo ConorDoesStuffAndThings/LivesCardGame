@@ -4,6 +4,8 @@ import javax.swing.JOptionPane;
 import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.io.*;
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Cards extends JFrame implements LivesIn{
@@ -19,9 +21,10 @@ public class Cards extends JFrame implements LivesIn{
         windowForLives = new JFrame("Lives");
         windowForLives.setLayout(null);
         windowForLives.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        windowForLives.setSize(1000,1000);
         JButton pickUpCardBtn = new JButton("");
         JButton exitBtn = new JButton("Exit");
-        JLabel player2Cards = new JLabel(new ImageIcon("/images/back_cards.png"));
+        JLabel player2Cards = new JLabel(new ImageIcon(this.getClass().getResource("/images/back_cards.png")));
 
         //adapted from https://stackoverflow.com/questions/45722445/how-to-set-jframe-to-full-screen
         windowForLives.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -43,10 +46,7 @@ public class Cards extends JFrame implements LivesIn{
         pickUpCardBtn.addActionListener(pickUpHandler);
         exitBtn.addActionListener(exitHandler);
 
-        //add buttons and label to the JFrame
-        windowForLives.add(pickUpCardBtn);
-        windowForLives.add(exitBtn);
-        windowForLives.add(player2Cards);
+
 
         //positioning buttons
         pickUpCardBtn.setSize(200,300);
@@ -55,10 +55,14 @@ public class Cards extends JFrame implements LivesIn{
         exitBtn.setSize(60,30);
         exitBtn.setLocation(1440,1);
 
-        player2Cards.setSize(620,300);
-        player2Cards.setLocation(720,300);
+        player2Cards.setBounds(620,300,720,300);
 
+        //add buttons and label to the JFrame
+        windowForLives.add(pickUpCardBtn);
+        windowForLives.add(exitBtn);
+        windowForLives.add(player2Cards);
 
+        //windowForLives.setVisible(true);
 
 
     }
@@ -136,6 +140,30 @@ public class Cards extends JFrame implements LivesIn{
         CardClass card=cards52[42];
     return card;
     } //end of playACard method
+
+    //method to save wins and loses
+    /*public saveInfo(ArrayList<Player> info)
+    {
+
+        try{
+            FileOutputStream fos = new FileOutputStream(file);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(info);
+            oos.close();
+        }
+
+        catch(FileNotFoundException e)
+        {
+            JOptionPane.showMessageDialog(null,"Error!!! File not found!", "Error", JOptionPane.WARNING_MESSAGE);
+
+        }
+
+        catch(IOException e)
+        {
+            JOptionPane.showMessageDialog(null,"Error. IOException occurred", "Error", JOptionPane.WARNING_MESSAGE);
+
+        }
+    }*/
 
     //method to check and enforce rules
     public void checkLivesRules(){
