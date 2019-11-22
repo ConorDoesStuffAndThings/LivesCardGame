@@ -1,5 +1,7 @@
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+
+//need http://www.javazoom.net/javalayer/sources.html to make work
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
 
@@ -12,7 +14,7 @@ class CardsDriver {
         try {
             //song gotten from https://www.youtube.com/watch?v=R0RRuWnCWts
             //FileInputStream musicToBePlayed = new FileInputStream("//music/kevinweasel.mp3");
-            FileInputStream musicToBePlayed = new FileInputStream("C:/Users/t00205418/IdeaProjects/LivesCardGame/src/music/kevinweasel.mp3");
+            FileInputStream musicToBePlayed = new FileInputStream("../music/kevinweasel.mp3");
 
 
             Player player = new Player(musicToBePlayed);

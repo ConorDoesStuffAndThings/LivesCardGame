@@ -7,13 +7,20 @@ import java.awt.event.ActionEvent;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Random;
+import javax.swing.JScrollPane;
 
 public class Cards extends JFrame implements LivesIn{
     JButton pickUpCardBtn;
     JButton exitBtn;
     JLabel player2Cards;
     JFrame windowForLives;
+    JPanel playerCards;
+    JButton cardOne, cardTwo, cardThree, cardFour, cardFive, cardSix, cardSeven, cardEight, cardNine, cardTen, cardEleven,
+    cardTwelve, cardThirteen, cardFourteen, cardFifthteen, cardSixteen, cardSeventeen, cardEighteen, cardNineteen, cardTweenty;
     ArrayList<CardClass> cards52;
+    File file;
+    ArrayList<Player> playerInfo;
+    JScrollPane toViewCards;
 
     public Cards() {
         generateCards();
@@ -22,13 +29,19 @@ public class Cards extends JFrame implements LivesIn{
         windowForLives = new JFrame("Lives");
         windowForLives.setLayout(null);
         windowForLives.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        windowForLives.setSize(1550,1000);
+        windowForLives.setSize(1550,830);
         JButton pickUpCardBtn = new JButton("");
         JButton exitBtn = new JButton("Exit");
         JLabel player2Cards = new JLabel(new ImageIcon(this.getClass().getResource("/images/back_cards.png")));
         JPanel playerCards = new JPanel();
         playerCards.setLayout(new GridLayout(1,10));
         playerCards.setBackground(Color.ORANGE);
+
+        //scroll pane, code adapted from https://stackoverflow.com/questions/10346449/scrolling-a-jpanel
+        JScrollPane scrollPane = new JScrollPane(playerCards);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
+        scrollPane.setBounds(50, 30, 300, 50);
 
         //adapted from java API
         windowForLives.setResizable(false);
@@ -51,22 +64,86 @@ public class Cards extends JFrame implements LivesIn{
 
         //positioning buttons
         pickUpCardBtn.setSize(200,300);
-        pickUpCardBtn.setLocation(1300,300);
+        pickUpCardBtn.setLocation(1300,170);
 
         exitBtn.setSize(60,30);
         exitBtn.setLocation(1440,1);
 
         player2Cards.setBounds(320,10,720,300);
-        playerCards.setBounds(20, 600, 1500, 350);
+        playerCards.setBounds(20, 500, 1500, 320);
 
         //add buttons and label to the JFrame
         windowForLives.add(pickUpCardBtn);
         windowForLives.add(exitBtn);
         windowForLives.add(player2Cards);
         windowForLives.add(playerCards);
-
         windowForLives.setVisible(true);
 
+
+
+        //add button for card to JPanel
+        playerCards.add(cardOne);
+        cardOne.setBounds(10, 5, 196, 300);
+
+        playerCards.add(cardTwo);
+        cardTwo.setBounds(10, 5, 196, 300);
+
+        playerCards.add(cardThree);
+        cardThree.setBounds(10, 5, 196, 300);
+
+        playerCards.add(cardFour);
+        cardFour.setBounds(10, 5, 196, 300);
+
+        playerCards.add(cardFive);
+        cardFive.setBounds(10, 5, 196, 300);
+
+        playerCards.add(cardSix);
+        cardSix.setBounds(10, 5, 196, 300);
+
+        playerCards.add(cardSeven);
+        cardSeven.setBounds(10, 5, 196, 300);
+
+        playerCards.add(cardEight);
+        cardEight.setBounds(10, 5, 196, 300);
+
+        playerCards.add(cardNine);
+        cardNine.setBounds(10, 5, 196, 300);
+
+        playerCards.add(cardTen);
+        cardTen.setBounds(10, 5, 196, 300);
+
+        playerCards.add(cardEleven);
+        cardEleven.setBounds(10, 5, 196, 300);
+
+        playerCards.add(cardTwelve);
+        cardTwelve.setBounds(10, 5, 196, 300);
+
+        playerCards.add(cardThirteen);
+        cardThirteen.setBounds(10, 5, 196, 300);
+
+        playerCards.add(cardFourteen);
+        cardFourteen.setBounds(10, 5, 196, 300);
+
+        playerCards.add(cardFifthteen);
+        cardFifthteen.setBounds(10, 5, 196, 300);
+
+        playerCards.add(cardSixteen);
+        cardSixteen.setBounds(10, 5, 196, 300);
+
+        playerCards.add(cardSeventeen);
+        cardSeventeen.setBounds(10, 5, 196, 300);
+
+        playerCards.add(cardEighteen);
+        cardEighteen.setBounds(10, 5, 196, 300);
+
+        playerCards.add(cardNineteen);
+        cardNineteen.setBounds(10, 5, 196, 300);
+
+        playerCards.add(cardTweenty);
+        cardTweenty.setBounds(10, 5, 196, 300);
+
+
+        playerCards.add(scrollPane);
 
         //place players cards on panel (playerCards) and make them buttons that change value when player picks up new card
 
@@ -129,9 +206,6 @@ public class Cards extends JFrame implements LivesIn{
         cards52.add(new CardClass("Diamonds", "King", true, new ImageIcon("/images/KD.png")));
         cards52.add(new CardClass("Diamonds", "Queen", true, new ImageIcon("/images/QD.png")));
         cards52.add(new CardClass("Diamonds", "Jack", true, new ImageIcon("/images/JD.png")));
-
-
-
     }//end of generateCards method
 
 
@@ -151,29 +225,43 @@ public class Cards extends JFrame implements LivesIn{
     return card;
     } //end of playACard method
 
-    //method to save wins and loses
-    /*public saveInfo(ArrayList<Player> info)
-    {
-
+    //save wins and loses to file
+    public void saveInfo(ArrayList<Player> playerInfo){
         try{
-            FileOutputStream fos = new FileOutputStream(file);
-            ObjectOutputStream oos = new ObjectOutputStream(fos);
-            oos.writeObject(info);
-            oos.close();
+                FileOutputStream fos = new FileOutputStream(file);
+                ObjectOutputStream oos = new ObjectOutputStream(fos);
+                oos.writeObject(playerInfo);
+                oos.close();
         }
 
-        catch(FileNotFoundException e)
-        {
-            JOptionPane.showMessageDialog(null,"Error!!! File not found!", "Error", JOptionPane.WARNING_MESSAGE);
+        catch(FileNotFoundException e){
+             JOptionPane.showMessageDialog(null,"Error! File not found!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        catch(IOException e) {
+            JOptionPane.showMessageDialog(null,"Error! IOException!", "Error", JOptionPane.ERROR_MESSAGE);
 
+        }
+        }
+    //opens current wins and loses
+    public ArrayList<Player> statisticsWinLose()
+    {
+        ArrayList<Player> playerInfo = new ArrayList<>();
+
+        try{
+            File file = new File("statistics.dat");
+            FileInputStream fis = new FileInputStream(file);
+            ObjectInput ois = new ObjectInputStream(fis);
+            //read object
+            ois.close();
         }
 
         catch(IOException e)
         {
-            JOptionPane.showMessageDialog(null,"Error. IOException occurred", "Error", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Error!!! Can't open file!", "Error", JOptionPane.WARNING_MESSAGE);
 
         }
-    }*/
+        return playerInfo;
+    }//end of statisticsWinLose
 
     //method to check and enforce rules
     public void checkLivesRules(){
