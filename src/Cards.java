@@ -1,3 +1,15 @@
+//Cards.java
+/*This game  is the card game lives, both the player and the CPU (player2) start off with 7 cards
+* A random card from the deck is placed in the center, player one gets to play first, if player one
+* doesn't have a card that matches the suit or value of the card in the center player one must pick up a card,
+* The player can also pick up a card whenever they like, if the player holds more than 20 cards they lose the game.
+* Their is five values with abilities, Two, Jack, King, Queen and Ace,
+* Two - Next player in rotation must pick up 2 cards.
+* Jack - Next player in rotation gets skipped.
+* King - Changes the direction of rotation (has no function if their are only two players.
+* Queen - Next player in rotation can must pick up 4 cards
+* Ace - The Wildcard, can be played at any time regardless of suit and changes the suit played. */
+
 import javax.swing.JFrame;
 import java.awt.*;
 import javax.swing.JOptionPane;
@@ -15,10 +27,10 @@ public class Cards extends JFrame implements LivesIn{
     JLabel player2Cards;
     JFrame windowForLives;
     JPanel playerCards;
+    JPanel stackOfCards;
     JButton cardOne, cardTwo, cardThree, cardFour, cardFive, cardSix, cardSeven, cardEight, cardNine, cardTen, cardEleven,
     cardTwelve, cardThirteen, cardFourteen, cardFifthteen, cardSixteen, cardSeventeen, cardEighteen, cardNineteen, cardTweenty;
     ArrayList<CardClass> cards52;
-    File file;
     ArrayList<Player> playerInfo;
     JScrollPane toViewCards;
 
@@ -36,6 +48,9 @@ public class Cards extends JFrame implements LivesIn{
         JPanel playerCards = new JPanel();
         playerCards.setLayout(new GridLayout(1,10));
         playerCards.setBackground(Color.ORANGE);
+        JPanel stackOfCards = new JPanel();
+        stackOfCards.setLayout(new GridLayout(1,1 ));
+        stackOfCards.setBackground(Color.GREEN);
 
         //scroll pane, code adapted from https://stackoverflow.com/questions/10346449/scrolling-a-jpanel
         JScrollPane scrollPane = new JScrollPane(playerCards);
@@ -71,12 +86,14 @@ public class Cards extends JFrame implements LivesIn{
 
         player2Cards.setBounds(320,10,720,300);
         playerCards.setBounds(20, 500, 1500, 320);
+        stackOfCards.setBounds(300, 300, 192, 300);
 
         //add buttons and label to the JFrame
         windowForLives.add(pickUpCardBtn);
         windowForLives.add(exitBtn);
         windowForLives.add(player2Cards);
         windowForLives.add(playerCards);
+        windowForLives.add(stackOfCards);
         windowForLives.setVisible(true);
 
 
@@ -219,16 +236,25 @@ public class Cards extends JFrame implements LivesIn{
         return card;
     }//end of dealACard method
 
-    //for player to play a card
-    public CardClass playACard(){
-        CardClass card=cards52.get(32);
-    return card;
-    } //end of playACard method
+    //for player to place a card
+    /*public CardClass playACard(CardClass placedCard, CardClass previousCard){
+        //CardClass card=cards52.get(32);
 
-    //save wins and loses to file
+        //if card suit or color matches
+        if(placedCard.getSuitOfCard() == previousCard.getSuitOfCard() || placedCard.getValueOfCard() == previousCard.getValueOfCard()){
+            placedCard = previousCard;
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "This card can't be placed! Card must match the suit or number of the previous card", "Invalid move!", JOptionPane.ERROR_MESSAGE);
+        }
+    return card;
+    } //end of playACard method */
+
+    //write file
     public void saveInfo(ArrayList<Player> playerInfo){
         try{
-                FileOutputStream fos = new FileOutputStream(file);
+                File f = new File("playerstats.dat");
+                FileOutputStream fos = new FileOutputStream(f);
                 ObjectOutputStream oos = new ObjectOutputStream(fos);
                 oos.writeObject(playerInfo);
                 oos.close();
@@ -242,22 +268,28 @@ public class Cards extends JFrame implements LivesIn{
 
         }
         }
-    //opens current wins and loses
+    //read file
     public ArrayList<Player> statisticsWinLose()
     {
         ArrayList<Player> playerInfo = new ArrayList<>();
 
         try{
-            File file = new File("statistics.dat");
-            FileInputStream fis = new FileInputStream(file);
+            File f= new File("playerstats.dat");
+            FileInputStream fis = new FileInputStream(f);
             ObjectInput ois = new ObjectInputStream(fis);
-            //read object
+            playerInfo = (ArrayList<Player>) ois.readObject();
             ois.close();
         }
 
         catch(IOException e)
         {
             JOptionPane.showMessageDialog(null,"Error!!! Can't open file!", "Error", JOptionPane.WARNING_MESSAGE);
+
+        }
+
+        catch(ClassNotFoundException e)
+        {
+            JOptionPane.showMessageDialog(null,"Error!!! Class not found", "Error", JOptionPane.WARNING_MESSAGE);
 
         }
         return playerInfo;
@@ -286,7 +318,7 @@ public class Cards extends JFrame implements LivesIn{
         }
 
         else if(currentCard.getValueOfCard().equals("Queen")){
-            JOptionPane.showMessageDialog(null, "The next player must place a " + dealACard() + " or pick up a card "+ currentCard.isAvailable());
+            JOptionPane.showMessageDialog(null, "The next player must must pick up four cards" + currentCard.isAvailable());
         }
 
         else{

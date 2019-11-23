@@ -3,6 +3,7 @@ import com.sun.tools.javac.Main;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class MainMenuGUI {
     JButton playButton;
@@ -46,6 +47,15 @@ public class MainMenuGUI {
         public void actionPerformed(ActionEvent e)
         {
             new Cards();
+            mainMenuWindow.setVisible(false);
+        }
+    }// end of PickUpCardEventHandler
+
+    private class statEventHandler implements ActionListener {
+
+        public void actionPerformed(ActionEvent e)
+        {
+            //ArrayList<Player> playerInfo =  Cards;
             mainMenuWindow.setVisible(false);
         }
     }// end of PickUpCardEventHandler
