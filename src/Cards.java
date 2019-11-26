@@ -42,13 +42,13 @@ public class Cards extends JFrame implements LivesIn{
         windowForLives.setLayout(null);
         windowForLives.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         windowForLives.setSize(1550,830);
-        JButton pickUpCardBtn = new JButton("");
-        JButton exitBtn = new JButton("Exit");
-        JLabel player2Cards = new JLabel(new ImageIcon(this.getClass().getResource("/images/back_cards.png")));
-        JPanel playerCards = new JPanel();
+        pickUpCardBtn = new JButton("");
+        exitBtn = new JButton("Exit");
+        player2Cards = new JLabel(new ImageIcon(this.getClass().getResource("/images/back_cards.png")));
+        playerCards = new JPanel();
         playerCards.setLayout(new GridLayout(1,10));
         playerCards.setBackground(Color.ORANGE);
-        JPanel stackOfCards = new JPanel();
+        stackOfCards = new JPanel();
         stackOfCards.setLayout(new GridLayout(1,1 ));
         stackOfCards.setBackground(Color.GREEN);
 
@@ -237,8 +237,9 @@ public class Cards extends JFrame implements LivesIn{
     }//end of dealACard method
 
     //for player to place a card
-    /*public CardClass playACard(CardClass placedCard, CardClass previousCard){
+    public CardClass playACard(CardClass placedCard, CardClass previousCard){
         //CardClass card=cards52.get(32);
+
 
         //if card suit or color matches
         if(placedCard.getSuitOfCard() == previousCard.getSuitOfCard() || placedCard.getValueOfCard() == previousCard.getValueOfCard()){
@@ -247,8 +248,9 @@ public class Cards extends JFrame implements LivesIn{
         else{
             JOptionPane.showMessageDialog(null, "This card can't be placed! Card must match the suit or number of the previous card", "Invalid move!", JOptionPane.ERROR_MESSAGE);
         }
-    return card;
-    } //end of playACard method */
+
+    return placedCard;
+    } //end of playACard method
 
     //write file
     public void saveInfo(ArrayList<Player> playerInfo){
@@ -265,8 +267,8 @@ public class Cards extends JFrame implements LivesIn{
         }
         catch(IOException e) {
             JOptionPane.showMessageDialog(null,"Error! IOException!", "Error", JOptionPane.ERROR_MESSAGE);
-
         }
+
         }
     //read file
     public ArrayList<Player> statisticsWinLose()
@@ -331,6 +333,7 @@ public class Cards extends JFrame implements LivesIn{
 
 
 
+
     //EventHandler for PickUpCard
     private class PickUpCardEventHandler implements ActionListener{
 
@@ -339,6 +342,7 @@ public class Cards extends JFrame implements LivesIn{
             checkLivesRules();
         }
     }// end of PickUpCardEventHandler
+
 
     //handler to go to main menu
     private class backEventHandler implements ActionListener {
@@ -352,4 +356,6 @@ public class Cards extends JFrame implements LivesIn{
             windowForLives.setVisible(false);
         }
     }// end of PickUpCardEventHandler
+
+
 }

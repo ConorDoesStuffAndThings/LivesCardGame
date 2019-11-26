@@ -38,6 +38,7 @@ public class MainMenuGUI {
 
         playButton.addActionListener(new playEventHandler());
         exitButton.addActionListener(new ExitGameHandler());
+        statButton.addActionListener(new statEventHandler());
 
 
     }
@@ -55,10 +56,33 @@ public class MainMenuGUI {
 
         public void actionPerformed(ActionEvent e)
         {
-            //ArrayList<Player> playerInfo =  Cards;
-            mainMenuWindow.setVisible(false);
+
+            //got help from Ryan Madigan (3rd year Games Development)
+            ArrayList<Player> playerStats = new ArrayList();
+            Cards c = new Cards();
+            c.saveInfo(playerStats);
+
+            ArrayList<Player> playerDetails =  c.statisticsWinLose();
+
+            JTextArea playerInfo = new JTextArea();
+            playerInfo.setText("All Player Stats");
+
+            if(playerDetails.isEmpty())
+            {
+                JOptionPane.showMessageDialog(null,"No stats to display");
+            }
+            else
+            {
+                for (int i = 0; i < playerDetails.size(); i++)
+                {
+                    playerInfo.append(playerDetails.get(i).toString());
+                }
+
+                JOptionPane.showMessageDialog(null,playerInfo,"Stats",JOptionPane.INFORMATION_MESSAGE);
+            }
+
         }
-    }// end of PickUpCardEventHandler
+    }// end of statEventHandler
 
     private class ExitGameHandler implements ActionListener{
 
