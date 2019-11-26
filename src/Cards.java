@@ -46,7 +46,12 @@ public class Cards extends JFrame implements LivesIn{
         exitBtn = new JButton("Exit");
         player2Cards = new JLabel(new ImageIcon(this.getClass().getResource("/images/back_cards.png")));
         playerCards = new JPanel();
-        playerCards.setLayout(new GridLayout(1,10));
+        playerCards.setLayout(null);
+        //playerCards.setLayout(new GridLayout (1,1));
+        //playerCards.setLayout(new BoxLayout().createHorizontalBox();
+
+       // playerCards.setLayout(new BoxLayout(playerCards,BoxLayout.LINE_AXIS));
+
         playerCards.setBackground(Color.ORANGE);
         stackOfCards = new JPanel();
         stackOfCards.setLayout(new GridLayout(1,1 ));
@@ -96,14 +101,17 @@ public class Cards extends JFrame implements LivesIn{
         windowForLives.add(stackOfCards);
         windowForLives.setVisible(true);
 
-
+        //setting cards
+        cardOne = new JButton(new ImageIcon("C:\\Users\\t00205418\\IdeaProjects\\LivesCardGame\\src\\images\\3D.png"));
+        cardTwo = new JButton(new ImageIcon("C:\\Users\\t00205418\\IdeaProjects\\LivesCardGame\\src\\images\\3H.png"));
 
         //add button for card to JPanel
+
         playerCards.add(cardOne);
         cardOne.setBounds(10, 5, 196, 300);
 
         playerCards.add(cardTwo);
-        cardTwo.setBounds(10, 5, 196, 300);
+        cardTwo.setBounds(40, 5, 196, 300);
 
         playerCards.add(cardThree);
         cardThree.setBounds(10, 5, 196, 300);
@@ -253,7 +261,7 @@ public class Cards extends JFrame implements LivesIn{
     } //end of playACard method
 
     //write file
-    public void saveInfo(ArrayList<Player> playerInfo){
+    public static void saveInfo(ArrayList<Player> playerInfo){
         try{
                 File f = new File("playerstats.dat");
                 FileOutputStream fos = new FileOutputStream(f);
@@ -271,7 +279,7 @@ public class Cards extends JFrame implements LivesIn{
 
         }
     //read file
-    public ArrayList<Player> statisticsWinLose()
+    public static ArrayList<Player> statisticsWinLose()
     {
         ArrayList<Player> playerInfo = new ArrayList<>();
 

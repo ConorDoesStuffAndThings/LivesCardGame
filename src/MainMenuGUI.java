@@ -58,11 +58,12 @@ public class MainMenuGUI {
         {
 
             //got help from Ryan Madigan (3rd year Games Development)
-            ArrayList<Player> playerStats = new ArrayList();
-            Cards c = new Cards();
-            c.saveInfo(playerStats);
+           ArrayList<Player> playerStats = new ArrayList();
 
-            ArrayList<Player> playerDetails =  c.statisticsWinLose();
+
+            Cards.saveInfo(playerStats);
+
+            ArrayList<Player> playerDetails =  Cards.statisticsWinLose();
 
             JTextArea playerInfo = new JTextArea();
             playerInfo.setText("All Player Stats");

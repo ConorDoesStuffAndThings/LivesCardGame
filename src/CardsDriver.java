@@ -14,11 +14,15 @@ class CardsDriver {
         try {
             //song gotten from https://www.youtube.com/watch?v=R0RRuWnCWts
             //FileInputStream musicToBePlayed = new FileInputStream("//music/kevinweasel.mp3");
-            FileInputStream musicToBePlayed = new FileInputStream("../music/kevinweasel.mp3");
+            FileInputStream musicToBePlayed = new FileInputStream("music/kevinweasel.mp3");
 
-
+            //creates a new player object called "player"
             Player player = new Player(musicToBePlayed);
+
+            //just for confirmation that the song is playing for when muted
             System.out.println("Song is playing...");
+
+            //plays song
             player.play();
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
@@ -27,5 +31,5 @@ class CardsDriver {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-    }
+    }//end of psvm
 }
