@@ -104,6 +104,24 @@ public class Cards extends JFrame implements LivesIn{
         //setting cards
         cardOne = new JButton(new ImageIcon("C:\\Users\\t00205418\\IdeaProjects\\LivesCardGame\\src\\images\\3D.png"));
         cardTwo = new JButton(new ImageIcon("C:\\Users\\t00205418\\IdeaProjects\\LivesCardGame\\src\\images\\3H.png"));
+        cardThree = new JButton(new ImageIcon("C:\\Users\\t00205418\\IdeaProjects\\LivesCardGame\\src\\images\\2C.png"));
+        cardFour = new JButton(new ImageIcon("C:\\Users\\t00205418\\IdeaProjects\\LivesCardGame\\src\\images\\6C.png"));
+        cardFive = new JButton(new ImageIcon("C:\\Users\\t00205418\\IdeaProjects\\LivesCardGame\\src\\images\\KC.png"));
+        cardSix = new JButton(new ImageIcon("C:\\Users\\t00205418\\IdeaProjects\\LivesCardGame\\src\\images\\QC.png"));
+        cardSeven = new JButton(new ImageIcon("C:\\Users\\t00205418\\IdeaProjects\\LivesCardGame\\src\\images\\8H.png"));
+        cardEight = new JButton(new ImageIcon("C:\\Users\\t00205418\\IdeaProjects\\LivesCardGame\\src\\images\\9D.png"));
+        cardNine = new JButton(new ImageIcon("C:\\Users\\t00205418\\IdeaProjects\\LivesCardGame\\src\\images\\9H.png"));
+        cardTen = new JButton(new ImageIcon("C:\\Users\\t00205418\\IdeaProjects\\LivesCardGame\\src\\images\\AD.png"));
+        cardEleven = new JButton(new ImageIcon("C:\\Users\\t00205418\\IdeaProjects\\LivesCardGame\\src\\images\\AS.png"));
+        cardTwelve = new JButton(new ImageIcon("C:\\Users\\t00205418\\IdeaProjects\\LivesCardGame\\src\\images\\QC.png"));
+        cardThirteen = new JButton(new ImageIcon("C:\\Users\\t00205418\\IdeaProjects\\LivesCardGame\\src\\images\\QS.png"));
+        cardFourteen = new JButton(new ImageIcon("C:\\Users\\t00205418\\IdeaProjects\\LivesCardGame\\src\\images\\KC.png"));
+        cardFifthteen = new JButton(new ImageIcon("C:\\Users\\t00205418\\IdeaProjects\\LivesCardGame\\src\\images\\10S.png"));
+        cardSixteen = new JButton(new ImageIcon("C:\\Users\\t00205418\\IdeaProjects\\LivesCardGame\\src\\images\\10C.png"));
+        cardSeventeen = new JButton(new ImageIcon("C:\\Users\\t00205418\\IdeaProjects\\LivesCardGame\\src\\images\\AC.png"));
+        cardEighteen = new JButton(new ImageIcon("C:\\Users\\t00205418\\IdeaProjects\\LivesCardGame\\src\\images\\AD.png"));
+        cardNineteen = new JButton(new ImageIcon("C:\\Users\\t00205418\\IdeaProjects\\LivesCardGame\\src\\images\\9S.png"));
+        cardTweenty = new JButton(new ImageIcon("C:\\Users\\t00205418\\IdeaProjects\\LivesCardGame\\src\\images\\10D.png"));
 
         //add button for card to JPanel
 
@@ -114,58 +132,58 @@ public class Cards extends JFrame implements LivesIn{
         cardTwo.setBounds(40, 5, 196, 300);
 
         playerCards.add(cardThree);
-        cardThree.setBounds(10, 5, 196, 300);
+        cardThree.setBounds(70, 5, 196, 300);
 
         playerCards.add(cardFour);
-        cardFour.setBounds(10, 5, 196, 300);
+        cardFour.setBounds(100, 5, 196, 300);
 
         playerCards.add(cardFive);
-        cardFive.setBounds(10, 5, 196, 300);
+        cardFive.setBounds(130, 5, 196, 300);
 
         playerCards.add(cardSix);
-        cardSix.setBounds(10, 5, 196, 300);
+        cardSix.setBounds(160, 5, 196, 300);
 
         playerCards.add(cardSeven);
-        cardSeven.setBounds(10, 5, 196, 300);
+        cardSeven.setBounds(190, 5, 196, 300);
 
         playerCards.add(cardEight);
-        cardEight.setBounds(10, 5, 196, 300);
+        cardEight.setBounds(220, 5, 196, 300);
 
         playerCards.add(cardNine);
-        cardNine.setBounds(10, 5, 196, 300);
+        cardNine.setBounds(250, 5, 196, 300);
 
         playerCards.add(cardTen);
-        cardTen.setBounds(10, 5, 196, 300);
+        cardTen.setBounds(280, 5, 196, 300);
 
         playerCards.add(cardEleven);
-        cardEleven.setBounds(10, 5, 196, 300);
+        cardEleven.setBounds(210, 5, 196, 300);
 
         playerCards.add(cardTwelve);
-        cardTwelve.setBounds(10, 5, 196, 300);
+        cardTwelve.setBounds(240, 5, 196, 300);
 
         playerCards.add(cardThirteen);
-        cardThirteen.setBounds(10, 5, 196, 300);
+        cardThirteen.setBounds(270, 5, 196, 300);
 
         playerCards.add(cardFourteen);
-        cardFourteen.setBounds(10, 5, 196, 300);
+        cardFourteen.setBounds(300, 5, 196, 300);
 
         playerCards.add(cardFifthteen);
-        cardFifthteen.setBounds(10, 5, 196, 300);
+        cardFifthteen.setBounds(330, 5, 196, 300);
 
         playerCards.add(cardSixteen);
-        cardSixteen.setBounds(10, 5, 196, 300);
+        cardSixteen.setBounds(360, 5, 196, 300);
 
         playerCards.add(cardSeventeen);
-        cardSeventeen.setBounds(10, 5, 196, 300);
+        cardSeventeen.setBounds(390, 5, 196, 300);
 
         playerCards.add(cardEighteen);
-        cardEighteen.setBounds(10, 5, 196, 300);
+        cardEighteen.setBounds(420, 5, 196, 300);
 
         playerCards.add(cardNineteen);
-        cardNineteen.setBounds(10, 5, 196, 300);
+        cardNineteen.setBounds(450, 5, 196, 300);
 
         playerCards.add(cardTweenty);
-        cardTweenty.setBounds(10, 5, 196, 300);
+        cardTweenty.setBounds(480, 5, 196, 300);
 
 
         playerCards.add(scrollPane);
