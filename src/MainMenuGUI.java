@@ -10,7 +10,7 @@ public class MainMenuGUI {
     JButton statButton;
     JButton exitButton;
     JFrame mainMenuWindow;
-    CardClass[] cards52 = new CardClass[52];
+    Card[] cards52 = new Card[52];
     public MainMenuGUI(){
         mainMenuWindow = new JFrame("Main Menu - Lives");
         mainMenuWindow.setLayout(null);

@@ -29,7 +29,7 @@ public class LivesGUI extends JFrame implements LivesIn{
     JFrame windowForLives;
     JPanel playerCards;
     JPanel stackOfCards;
-    ArrayList<CardClass> cards52;
+    ArrayList<Card> cards;
     ArrayList<Player> playerInfo;
 
     public LivesGUI() {
@@ -105,8 +105,8 @@ public class LivesGUI extends JFrame implements LivesIn{
         {
 
 
-            //playerCardBtns[i] = new JButton((Icon) cards52.get(i));
-            playerCardBtns[i] = new JButton(cards52.get(i).getImage());
+            //playerCardBtns[i] = new JButton((Icon) cards.get(i));
+            playerCardBtns[i] = new JButton(cards.get(i).getImage());
             //place button playerCards panel
             playerCards.add(playerCardBtns[i]);
             playerCardBtns[i].setBounds(xVal, 5, 196, 300);
@@ -149,75 +149,75 @@ public class LivesGUI extends JFrame implements LivesIn{
 
     //method to generate cards
     public void generateCards(){
-        cards52 = new ArrayList<CardClass>();
-        cards52.add(new CardClass("Clubs", "Ace", true, new ImageIcon("/images/AC.png")));
-        cards52.add(new CardClass("Clubs", "Two", true, new ImageIcon("/images/2C.png")));
-        cards52.add(new CardClass("Clubs", "Three", true, new ImageIcon("/images/3C.png")));
-        cards52.add(new CardClass("Clubs", "Four", true, new ImageIcon("/images/4C.png")));
-        cards52.add(new CardClass("Clubs", "Five", true, new ImageIcon("/images/5C.png")));
-        cards52.add(new CardClass("Clubs", "Six", true, new ImageIcon("/images/6C.png")));
-        cards52.add(new CardClass("Clubs", "Seven", true, new ImageIcon("/images/7C.png")));
-        cards52.add(new CardClass("Clubs", "Eight", true, new ImageIcon("/images/8C.png")));
-        cards52.add(new CardClass("Clubs", "Nine", true, new ImageIcon("/images/9C.png")));
-        cards52.add(new CardClass("Clubs", "Ten", true, new ImageIcon("/images/10C.png")));
-        cards52.add(new CardClass("Clubs", "King", true, new ImageIcon("/images/KC.png")));
-        cards52.add(new CardClass("Clubs", "Queen", true, new ImageIcon("/images/QC.png")));
-        cards52.add(new CardClass("Clubs", "Jack", true, new ImageIcon("/images/JC.png")));
-        cards52.add(new CardClass("Hearts", "Ace", true, new ImageIcon("/images/AH.png")));
-        cards52.add(new CardClass("Hearts", "Two", true, new ImageIcon("/images/2H.png")));
-        cards52.add(new CardClass("Hearts", "Three", true, new ImageIcon("/images/3H.png")));
-        cards52.add(new CardClass("Hearts", "Four", true, new ImageIcon("/images/4H.png")));
-        cards52.add(new CardClass("Hearts", "Five", true, new ImageIcon("/images/5H.png")));
-        cards52.add(new CardClass("Hearts", "Six", true, new ImageIcon("/images/6H.png")));
-        cards52.add(new CardClass("Hearts", "Seven", true, new ImageIcon("/images/7H.png")));
-        cards52.add(new CardClass("Hearts", "Eight", true, new ImageIcon("/images/8H.png")));
-        cards52.add(new CardClass("Hearts", "Nine", true, new ImageIcon("/images/9H.png")));
-        cards52.add(new CardClass("Hearts", "Ten", true, new ImageIcon("/images/10H.png")));
-        cards52.add(new CardClass("Hearts", "King", true, new ImageIcon("/images/KH.png")));
-        cards52.add(new CardClass("Hearts", "Queen", true, new ImageIcon("/images/QH.png")));
-        cards52.add(new CardClass("Hearts", "Jack", true, new ImageIcon("/images/JH.png")));
-        cards52.add(new CardClass("Spades", "Ace", true, new ImageIcon("/images/AS.png")));
-        cards52.add(new CardClass("Spades", "Two", true, new ImageIcon("/images/2S.png")));
-        cards52.add(new CardClass("Spades", "Three", true, new ImageIcon("/images/3S.png")));
-        cards52.add(new CardClass("Spades", "Four", true, new ImageIcon("/images/4S.png")));
-        cards52.add(new CardClass("Spades", "Five", true, new ImageIcon("/images/5S.png")));
-        cards52.add(new CardClass("Spades", "Six", true, new ImageIcon("/images/6S.png")));
-        cards52.add(new CardClass("Spades", "Seven", true, new ImageIcon("/images/7S.png")));
-        cards52.add(new CardClass("Spades", "Eight", true, new ImageIcon("/images/8S.png")));
-        cards52.add(new CardClass("Spades", "Nine", true, new ImageIcon("/images/9S.png")));
-        cards52.add(new CardClass("Spades", "Ten", true, new ImageIcon("/images/10S.png")));
-        cards52.add(new CardClass("Spades", "King", true, new ImageIcon("/images/KS.png")));
-        cards52.add(new CardClass("Spades", "Queen", true, new ImageIcon("/images/QS.png")));
-        cards52.add(new CardClass("Spades", "Jack", true, new ImageIcon("/images/JS.png")));
-        cards52.add(new CardClass("Diamonds", "Ace", true, new ImageIcon("/images/AD.png")));
-        cards52.add(new CardClass("Diamonds", "Two", true, new ImageIcon("/images/2D.png")));
-        cards52.add(new CardClass("Diamonds", "Three", true, new ImageIcon("/images/3D.png")));
-        cards52.add(new CardClass("Diamonds", "Four", true, new ImageIcon("/images/4D.png")));
-        cards52.add(new CardClass("Diamonds", "Five", true, new ImageIcon("/images/5D.png")));
-        cards52.add(new CardClass("Diamonds", "Six", true, new ImageIcon("/images/6D.png")));
-        cards52.add(new CardClass("Diamonds", "Seven", true, new ImageIcon("/images/7D.png")));
-        cards52.add(new CardClass("Diamonds", "Eight", true, new ImageIcon("/images/8D.png")));
-        cards52.add(new CardClass("Diamonds", "Nine", true, new ImageIcon("/images/9D.png")));
-        cards52.add(new CardClass("Diamonds", "Ten", true, new ImageIcon("/images/10D.png")));
-        cards52.add(new CardClass("Diamonds", "King", true, new ImageIcon("/images/KD.png")));
-        cards52.add(new CardClass("Diamonds", "Queen", true, new ImageIcon("/images/QD.png")));
-        cards52.add(new CardClass("Diamonds", "Jack", true, new ImageIcon("/images/JD.png")));
+        cards = new ArrayList<Card>();
+        cards.add(new Card("Clubs", "Ace", true, new ImageIcon("/images/AC.png")));
+        cards.add(new Card("Clubs", "Two", true, new ImageIcon("/images/2C.png")));
+        cards.add(new Card("Clubs", "Three", true, new ImageIcon("/images/3C.png")));
+        cards.add(new Card("Clubs", "Four", true, new ImageIcon("/images/4C.png")));
+        cards.add(new Card("Clubs", "Five", true, new ImageIcon("/images/5C.png")));
+        cards.add(new Card("Clubs", "Six", true, new ImageIcon("/images/6C.png")));
+        cards.add(new Card("Clubs", "Seven", true, new ImageIcon("/images/7C.png")));
+        cards.add(new Card("Clubs", "Eight", true, new ImageIcon("/images/8C.png")));
+        cards.add(new Card("Clubs", "Nine", true, new ImageIcon("/images/9C.png")));
+        cards.add(new Card("Clubs", "Ten", true, new ImageIcon("/images/10C.png")));
+        cards.add(new Card("Clubs", "King", true, new ImageIcon("/images/KC.png")));
+        cards.add(new Card("Clubs", "Queen", true, new ImageIcon("/images/QC.png")));
+        cards.add(new Card("Clubs", "Jack", true, new ImageIcon("/images/JC.png")));
+        cards.add(new Card("Hearts", "Ace", true, new ImageIcon("/images/AH.png")));
+        cards.add(new Card("Hearts", "Two", true, new ImageIcon("/images/2H.png")));
+        cards.add(new Card("Hearts", "Three", true, new ImageIcon("/images/3H.png")));
+        cards.add(new Card("Hearts", "Four", true, new ImageIcon("/images/4H.png")));
+        cards.add(new Card("Hearts", "Five", true, new ImageIcon("/images/5H.png")));
+        cards.add(new Card("Hearts", "Six", true, new ImageIcon("/images/6H.png")));
+        cards.add(new Card("Hearts", "Seven", true, new ImageIcon("/images/7H.png")));
+        cards.add(new Card("Hearts", "Eight", true, new ImageIcon("/images/8H.png")));
+        cards.add(new Card("Hearts", "Nine", true, new ImageIcon("/images/9H.png")));
+        cards.add(new Card("Hearts", "Ten", true, new ImageIcon("/images/10H.png")));
+        cards.add(new Card("Hearts", "King", true, new ImageIcon("/images/KH.png")));
+        cards.add(new Card("Hearts", "Queen", true, new ImageIcon("/images/QH.png")));
+        cards.add(new Card("Hearts", "Jack", true, new ImageIcon("/images/JH.png")));
+        cards.add(new Card("Spades", "Ace", true, new ImageIcon("/images/AS.png")));
+        cards.add(new Card("Spades", "Two", true, new ImageIcon("/images/2S.png")));
+        cards.add(new Card("Spades", "Three", true, new ImageIcon("/images/3S.png")));
+        cards.add(new Card("Spades", "Four", true, new ImageIcon("/images/4S.png")));
+        cards.add(new Card("Spades", "Five", true, new ImageIcon("/images/5S.png")));
+        cards.add(new Card("Spades", "Six", true, new ImageIcon("/images/6S.png")));
+        cards.add(new Card("Spades", "Seven", true, new ImageIcon("/images/7S.png")));
+        cards.add(new Card("Spades", "Eight", true, new ImageIcon("/images/8S.png")));
+        cards.add(new Card("Spades", "Nine", true, new ImageIcon("/images/9S.png")));
+        cards.add(new Card("Spades", "Ten", true, new ImageIcon("/images/10S.png")));
+        cards.add(new Card("Spades", "King", true, new ImageIcon("/images/KS.png")));
+        cards.add(new Card("Spades", "Queen", true, new ImageIcon("/images/QS.png")));
+        cards.add(new Card("Spades", "Jack", true, new ImageIcon("/images/JS.png")));
+        cards.add(new Card("Diamonds", "Ace", true, new ImageIcon("/images/AD.png")));
+        cards.add(new Card("Diamonds", "Two", true, new ImageIcon("/images/2D.png")));
+        cards.add(new Card("Diamonds", "Three", true, new ImageIcon("/images/3D.png")));
+        cards.add(new Card("Diamonds", "Four", true, new ImageIcon("/images/4D.png")));
+        cards.add(new Card("Diamonds", "Five", true, new ImageIcon("/images/5D.png")));
+        cards.add(new Card("Diamonds", "Six", true, new ImageIcon("/images/6D.png")));
+        cards.add(new Card("Diamonds", "Seven", true, new ImageIcon("/images/7D.png")));
+        cards.add(new Card("Diamonds", "Eight", true, new ImageIcon("/images/8D.png")));
+        cards.add(new Card("Diamonds", "Nine", true, new ImageIcon("/images/9D.png")));
+        cards.add(new Card("Diamonds", "Ten", true, new ImageIcon("/images/10D.png")));
+        cards.add(new Card("Diamonds", "King", true, new ImageIcon("/images/KD.png")));
+        cards.add(new Card("Diamonds", "Queen", true, new ImageIcon("/images/QD.png")));
+        cards.add(new Card("Diamonds", "Jack", true, new ImageIcon("/images/JD.png")));
     }//end of generateCards method
 
 
     //method to deals a card
-    public CardClass dealACard(){
-        CardClass card;
+    public Card dealACard(){
+        Card card;
         Random r = new Random();
         int i = r.nextInt(52);
-        card = cards52.get(i);
+        card = cards.get(i);
         card.setAvailable(false);
         return card;
     }//end of dealACard method
 
     //for player to place a card
-    public CardClass playACard(CardClass placedCard, CardClass previousCard){
-        //CardClass card=cards52.get(32);
+    public Card playACard(Card placedCard, Card previousCard){
+        //Card card=cards.get(32);
 
 
         //if card suit or color matches
@@ -278,7 +278,7 @@ public class LivesGUI extends JFrame implements LivesIn{
 
     //method to check and enforce rules
     public void checkLivesRules(){
-        CardClass currentCard = dealACard();
+        Card currentCard = dealACard();
         JOptionPane.showMessageDialog(null, currentCard);
 
         //add in card abilities

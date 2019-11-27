@@ -1,6 +1,6 @@
 public interface LivesIn {
     void generateCards();
-    CardClass dealACard();
+    Card dealACard();
     void checkLivesRules();
 
 }

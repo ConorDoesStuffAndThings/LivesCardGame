@@ -10,7 +10,7 @@ public class Card {
 
 
     //constructor
-    public CardClass(String suitOfCard, String valueOfCard, boolean available, ImageIcon image){
+    public Card(String suitOfCard, String valueOfCard, boolean available, ImageIcon image){
         setSuitOfCard(suitOfCard);
         setValueOfCard(valueOfCard);
         setAvailable(available);
