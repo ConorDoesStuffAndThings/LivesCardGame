@@ -13,7 +13,6 @@ class CardsDriver {
         //code adapted from https://www.youtube.com/watch?v=oFs7FPpf5-w
         try {
             //song gotten from https://www.youtube.com/watch?v=R0RRuWnCWts
-            //FileInputStream musicToBePlayed = new FileInputStream("//music/kevinweasel.mp3");
             FileInputStream musicToBePlayed = new FileInputStream("music/kevinweasel.mp3");
 
             //creates a new player object called "player"
@@ -25,11 +24,9 @@ class CardsDriver {
             //plays song
             player.play();
         } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            System.out.println("Error! File not found!");
         } catch (JavaLayerException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            System.out.println("Error! Java Layer Exception!!");
         }
     }//end of psvm
 }

@@ -31,9 +31,8 @@ public class LivesGUI extends JFrame implements LivesIn{
     JPanel stackOfCards;
     ArrayList<CardClass> cards52;
     ArrayList<Player> playerInfo;
-    JScrollPane toViewCards;
 
-    public Cards() {
+    public LivesGUI() {
         generateCards();
 
         //setting up window

@@ -20,9 +20,9 @@ public class MainMenuGUI {
         mainMenuWindow.setResizable(false);
 
         //create buttons
-        JButton playButton = new JButton("Play");
-        JButton statButton = new JButton("Statistics");
-        JButton exitButton = new JButton("Exit");
+        playButton = new JButton("Play");
+        statButton = new JButton("Statistics");
+        exitButton = new JButton("Exit");
 
         mainMenuWindow.setVisible(true);
 
@@ -47,7 +47,7 @@ public class MainMenuGUI {
 
         public void actionPerformed(ActionEvent e)
         {
-            new Cards();
+            new LivesGUI();
             mainMenuWindow.setVisible(false);
         }
     }// end of PickUpCardEventHandler
@@ -61,9 +61,9 @@ public class MainMenuGUI {
            ArrayList<Player> playerStats = new ArrayList();
 
 
-            Cards.saveInfo(playerStats);
+            LivesGUI.saveInfo(playerStats);
 
-            ArrayList<Player> playerDetails =  Cards.statisticsWinLose();
+            ArrayList<Player> playerDetails =  LivesGUI.statisticsWinLose();
 
             JTextArea playerInfo = new JTextArea();
             playerInfo.setText("All Player Stats");
