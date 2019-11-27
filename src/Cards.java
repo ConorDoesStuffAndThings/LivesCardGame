@@ -57,12 +57,6 @@ public class Cards extends JFrame implements LivesIn{
         stackOfCards.setLayout(new GridLayout(1,1 ));
         stackOfCards.setBackground(Color.GREEN);
 
-        //scroll pane, code adapted from https://stackoverflow.com/questions/10346449/scrolling-a-jpanel
-        JScrollPane scrollPane = new JScrollPane(playerCards);
-        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
-        scrollPane.setBounds(50, 30, 300, 50);
-
         //adapted from java API
         windowForLives.setResizable(false);
 
@@ -101,6 +95,15 @@ public class Cards extends JFrame implements LivesIn{
         windowForLives.add(stackOfCards);
         windowForLives.setVisible(true);
 
+
+        //make into array
+
+        JButton[] playerCardBtns = new JButton[19];
+
+        for(int i=0; playerCardBtns.length(); i++)
+        {
+            playerCardBtns[i] = new JButton(cards52.get(i));
+        }
         //setting cards
         cardOne = new JButton(new ImageIcon("C:\\Users\\t00205418\\IdeaProjects\\LivesCardGame\\src\\images\\3D.png"));
         cardTwo = new JButton(new ImageIcon("C:\\Users\\t00205418\\IdeaProjects\\LivesCardGame\\src\\images\\3H.png"));
@@ -129,64 +132,61 @@ public class Cards extends JFrame implements LivesIn{
         cardOne.setBounds(10, 5, 196, 300);
 
         playerCards.add(cardTwo);
-        cardTwo.setBounds(40, 5, 196, 300);
+        cardTwo.setBounds(60, 5, 196, 300);
 
         playerCards.add(cardThree);
-        cardThree.setBounds(70, 5, 196, 300);
+        cardThree.setBounds(110, 5, 196, 300);
 
         playerCards.add(cardFour);
-        cardFour.setBounds(100, 5, 196, 300);
+        cardFour.setBounds(160, 5, 196, 300);
 
         playerCards.add(cardFive);
-        cardFive.setBounds(130, 5, 196, 300);
+        cardFive.setBounds(210, 5, 196, 300);
 
         playerCards.add(cardSix);
-        cardSix.setBounds(160, 5, 196, 300);
+        cardSix.setBounds(260, 5, 196, 300);
 
         playerCards.add(cardSeven);
-        cardSeven.setBounds(190, 5, 196, 300);
+        cardSeven.setBounds(310, 5, 196, 300);
 
         playerCards.add(cardEight);
-        cardEight.setBounds(220, 5, 196, 300);
+        cardEight.setBounds(360, 5, 196, 300);
 
         playerCards.add(cardNine);
-        cardNine.setBounds(250, 5, 196, 300);
+        cardNine.setBounds(410, 5, 196, 300);
 
         playerCards.add(cardTen);
-        cardTen.setBounds(280, 5, 196, 300);
+        cardTen.setBounds(460, 5, 196, 300);
 
         playerCards.add(cardEleven);
-        cardEleven.setBounds(210, 5, 196, 300);
+        cardEleven.setBounds(510, 5, 196, 300);
 
         playerCards.add(cardTwelve);
-        cardTwelve.setBounds(240, 5, 196, 300);
+        cardTwelve.setBounds(560, 5, 196, 300);
 
         playerCards.add(cardThirteen);
-        cardThirteen.setBounds(270, 5, 196, 300);
+        cardThirteen.setBounds(610, 5, 196, 300);
 
         playerCards.add(cardFourteen);
-        cardFourteen.setBounds(300, 5, 196, 300);
+        cardFourteen.setBounds(660, 5, 196, 300);
 
         playerCards.add(cardFifthteen);
-        cardFifthteen.setBounds(330, 5, 196, 300);
+        cardFifthteen.setBounds(710, 5, 196, 300);
 
         playerCards.add(cardSixteen);
-        cardSixteen.setBounds(360, 5, 196, 300);
+        cardSixteen.setBounds(760, 5, 196, 300);
 
         playerCards.add(cardSeventeen);
-        cardSeventeen.setBounds(390, 5, 196, 300);
+        cardSeventeen.setBounds(810, 5, 196, 300);
 
         playerCards.add(cardEighteen);
-        cardEighteen.setBounds(420, 5, 196, 300);
+        cardEighteen.setBounds(860, 5, 196, 300);
 
         playerCards.add(cardNineteen);
-        cardNineteen.setBounds(450, 5, 196, 300);
+        cardNineteen.setBounds(910, 5, 196, 300);
 
         playerCards.add(cardTweenty);
-        cardTweenty.setBounds(480, 5, 196, 300);
-
-
-        playerCards.add(scrollPane);
+        cardTweenty.setBounds(960, 5, 196, 300);
 
         //place players cards on panel (playerCards) and make them buttons that change value when player picks up new card
 
