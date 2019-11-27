@@ -1,6 +1,6 @@
 import javax.swing.*;
 
-public class CardClass {
+public class Card {
 
     //creating variable for CardClass object
     private String suitOfCard;
