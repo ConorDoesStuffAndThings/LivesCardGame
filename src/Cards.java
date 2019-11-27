@@ -106,14 +106,14 @@ public class Cards extends JFrame implements LivesIn{
         {
 
 
-            playerCardBtns[i] = new JButton((Icon) cards52.get(i));
-
+            //playerCardBtns[i] = new JButton((Icon) cards52.get(i));
+            playerCardBtns[i] = new JButton(cards52.get(i).getImage());
             //place button playerCards panel
             playerCards.add(playerCardBtns[i]);
             playerCardBtns[i].setBounds(xVal, 5, 196, 300);
 
             //moves the card to the right
-            xVal+=50;
+            xVal+=70;
         }
         //setting cards
 
