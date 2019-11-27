@@ -24,12 +24,11 @@ import javax.swing.JScrollPane;
 public class Cards extends JFrame implements LivesIn{
     JButton pickUpCardBtn;
     JButton exitBtn;
+    JButton[] playerCardBtns;
     JLabel player2Cards;
     JFrame windowForLives;
     JPanel playerCards;
     JPanel stackOfCards;
-    JButton cardOne, cardTwo, cardThree, cardFour, cardFive, cardSix, cardSeven, cardEight, cardNine, cardTen, cardEleven,
-    cardTwelve, cardThirteen, cardFourteen, cardFifthteen, cardSixteen, cardSeventeen, cardEighteen, cardNineteen, cardTweenty;
     ArrayList<CardClass> cards52;
     ArrayList<Player> playerInfo;
     JScrollPane toViewCards;
@@ -98,13 +97,27 @@ public class Cards extends JFrame implements LivesIn{
 
         //make into array
 
-        JButton[] playerCardBtns = new JButton[19];
+        playerCardBtns = new JButton[19];
 
-        for(int i=0; playerCardBtns.length(); i++)
+        //default xVal for button
+        int xVal=10;
+
+        for(int i=0; i < playerCardBtns.length; i++)
         {
-            playerCardBtns[i] = new JButton(cards52.get(i));
+
+
+            playerCardBtns[i] = new JButton((Icon) cards52.get(i));
+
+            //place button playerCards panel
+            playerCards.add(playerCardBtns[i]);
+            playerCardBtns[i].setBounds(xVal, 5, 196, 300);
+
+            //moves the card to the right
+            xVal+=50;
         }
         //setting cards
+
+        /*
         cardOne = new JButton(new ImageIcon("C:\\Users\\t00205418\\IdeaProjects\\LivesCardGame\\src\\images\\3D.png"));
         cardTwo = new JButton(new ImageIcon("C:\\Users\\t00205418\\IdeaProjects\\LivesCardGame\\src\\images\\3H.png"));
         cardThree = new JButton(new ImageIcon("C:\\Users\\t00205418\\IdeaProjects\\LivesCardGame\\src\\images\\2C.png"));
@@ -125,68 +138,9 @@ public class Cards extends JFrame implements LivesIn{
         cardEighteen = new JButton(new ImageIcon("C:\\Users\\t00205418\\IdeaProjects\\LivesCardGame\\src\\images\\AD.png"));
         cardNineteen = new JButton(new ImageIcon("C:\\Users\\t00205418\\IdeaProjects\\LivesCardGame\\src\\images\\9S.png"));
         cardTweenty = new JButton(new ImageIcon("C:\\Users\\t00205418\\IdeaProjects\\LivesCardGame\\src\\images\\10D.png"));
-
+        */
         //add button for card to JPanel
 
-        playerCards.add(cardOne);
-        cardOne.setBounds(10, 5, 196, 300);
-
-        playerCards.add(cardTwo);
-        cardTwo.setBounds(60, 5, 196, 300);
-
-        playerCards.add(cardThree);
-        cardThree.setBounds(110, 5, 196, 300);
-
-        playerCards.add(cardFour);
-        cardFour.setBounds(160, 5, 196, 300);
-
-        playerCards.add(cardFive);
-        cardFive.setBounds(210, 5, 196, 300);
-
-        playerCards.add(cardSix);
-        cardSix.setBounds(260, 5, 196, 300);
-
-        playerCards.add(cardSeven);
-        cardSeven.setBounds(310, 5, 196, 300);
-
-        playerCards.add(cardEight);
-        cardEight.setBounds(360, 5, 196, 300);
-
-        playerCards.add(cardNine);
-        cardNine.setBounds(410, 5, 196, 300);
-
-        playerCards.add(cardTen);
-        cardTen.setBounds(460, 5, 196, 300);
-
-        playerCards.add(cardEleven);
-        cardEleven.setBounds(510, 5, 196, 300);
-
-        playerCards.add(cardTwelve);
-        cardTwelve.setBounds(560, 5, 196, 300);
-
-        playerCards.add(cardThirteen);
-        cardThirteen.setBounds(610, 5, 196, 300);
-
-        playerCards.add(cardFourteen);
-        cardFourteen.setBounds(660, 5, 196, 300);
-
-        playerCards.add(cardFifthteen);
-        cardFifthteen.setBounds(710, 5, 196, 300);
-
-        playerCards.add(cardSixteen);
-        cardSixteen.setBounds(760, 5, 196, 300);
-
-        playerCards.add(cardSeventeen);
-        cardSeventeen.setBounds(810, 5, 196, 300);
-
-        playerCards.add(cardEighteen);
-        cardEighteen.setBounds(860, 5, 196, 300);
-
-        playerCards.add(cardNineteen);
-        cardNineteen.setBounds(910, 5, 196, 300);
-
-        playerCards.add(cardTweenty);
-        cardTweenty.setBounds(960, 5, 196, 300);
 
         //place players cards on panel (playerCards) and make them buttons that change value when player picks up new card
 
