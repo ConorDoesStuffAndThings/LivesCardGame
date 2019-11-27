@@ -1,4 +1,4 @@
-//Cards.java
+//LivesGUI.java
 /*This game  is the card game lives, both the player and the CPU (player2) start off with 7 cards
 * A random card from the deck is placed in the center, player one gets to play first, if player one
 * doesn't have a card that matches the suit or value of the card in the center player one must pick up a card,
@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.JScrollPane;
 
-public class Cards extends JFrame implements LivesIn{
+public class LivesGUI extends JFrame implements LivesIn{
     JButton pickUpCardBtn;
     JButton exitBtn;
     JButton[] playerCardBtns;
