@@ -100,7 +100,7 @@ public class LivesGUI extends JFrame implements LivesIn{
 
         //default xVal for button
         int xVal=10;
-
+        
         for(int i=0; i < playerCardBtns.length; i++)
         {
 
