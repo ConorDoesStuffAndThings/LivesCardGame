@@ -25,7 +25,8 @@ public class LivesGUI extends JFrame implements LivesIn{
     JButton pickUpCardBtn;
     JButton exitBtn;
     JButton[] playerCardBtns;
-    JLabel player2Cards;
+    JButton[] player2CardBtns;
+    JPanel player2Cards;
     JFrame windowForLives;
     JPanel playerCards;
     JPanel stackOfCards;
@@ -34,6 +35,7 @@ public class LivesGUI extends JFrame implements LivesIn{
 
     public LivesGUI() {
         generateCards();
+        generatePlayerCards();
 
         //setting up window
         windowForLives = new JFrame("Lives");
@@ -42,7 +44,8 @@ public class LivesGUI extends JFrame implements LivesIn{
         windowForLives.setSize(1550,830);
         pickUpCardBtn = new JButton("");
         exitBtn = new JButton("Exit");
-        player2Cards = new JLabel(new ImageIcon(this.getClass().getResource("/images/back_cards.png")));
+        player2Cards = new JPanel();
+        player2Cards.setLayout(null);
         playerCards = new JPanel();
         playerCards.setLayout(null);
         //playerCards.setLayout(new GridLayout (1,1));
@@ -51,6 +54,7 @@ public class LivesGUI extends JFrame implements LivesIn{
        // playerCards.setLayout(new BoxLayout(playerCards,BoxLayout.LINE_AXIS));
 
         playerCards.setBackground(Color.ORANGE);
+        player2Cards.setBackground(Color.PINK);
         stackOfCards = new JPanel();
         stackOfCards.setLayout(new GridLayout(1,1 ));
         stackOfCards.setBackground(Color.GREEN);
@@ -97,23 +101,10 @@ public class LivesGUI extends JFrame implements LivesIn{
         //make into array
 
         playerCardBtns = new JButton[19];
-
+        player2CardBtns = new JButton[19];
         //default xVal for button
-        int xVal=10;
-        
-        for(int i=0; i < playerCardBtns.length; i++)
-        {
 
 
-            //playerCardBtns[i] = new JButton((Icon) cards.get(i));
-            playerCardBtns[i] = new JButton(cards.get(i).getImage());
-            //place button playerCards panel
-            playerCards.add(playerCardBtns[i]);
-            playerCardBtns[i].setBounds(xVal, 5, 196, 300);
-
-            //moves the card to the right
-            xVal+=70;
-        }
         //setting cards
 
         /*
@@ -143,9 +134,15 @@ public class LivesGUI extends JFrame implements LivesIn{
 
         //place players cards on panel (playerCards) and make them buttons that change value when player picks up new card
 
-    }
+    }//end of constructor
+
+
     //outer for loop going through suits
     //inner for loop going through types
+
+
+
+
 
     //method to generate cards
     public void generateCards(){
@@ -204,8 +201,6 @@ public class LivesGUI extends JFrame implements LivesIn{
         cards.add(new Card("Diamonds", "Jack", true, new ImageIcon("/images/JD.png")));
     }//end of generateCards method
 
-
-    //method to deals a card
     public Card dealACard(){
         Card card;
         Random r = new Random();
@@ -214,6 +209,47 @@ public class LivesGUI extends JFrame implements LivesIn{
         card.setAvailable(false);
         return card;
     }//end of dealACard method
+
+    public void generatePlayerCards(){
+        int xVal=10;
+
+        for(int i=0; i < playerCardBtns.length; i++)
+        {
+
+
+            //playerCardBtns[i] = new JButton((Icon) cards.get(i));
+            //pickUpCardBtn.setIcon(new ImageIcon(this.getClass().getResource("/images/red_back.png")));
+            playerCardBtns[i] = new JButton(cards.get(i).getImage());
+            //place button playerCards panel
+            playerCards.add(playerCardBtns[i]);
+            playerCardBtns[i].setBounds(xVal, 5, 196, 300);
+
+            //moves the card to the right
+            xVal+=70;
+        }//end of for loop
+    }//end of generatePlayerCards
+
+    public void generateCPUCards(){
+        int xVal=10;
+
+        for(int i=0; i < player2CardBtns.length; i++)
+        {
+
+
+            //playerCardBtns[i] = new JButton((Icon) cards.get(i));
+            //pickUpCardBtn.setIcon(new ImageIcon(this.getClass().getResource("/images/red_back.png")));
+            player2CardBtns[i] = new JButton(cards.get(i).getImage());
+            //place button playerCards panel
+            player2Cards.add(player2CardBtns[i]);
+            player2CardBtns[i].setBounds(xVal, 5, 196, 300);
+
+            //moves the card to the right
+            xVal+=70;
+        }//end of for loop
+    }//end of generatePlayerCards
+
+    //method to deals a card
+
 
     //for player to place a card
     public Card playACard(Card placedCard, Card previousCard){
@@ -225,11 +261,16 @@ public class LivesGUI extends JFrame implements LivesIn{
             placedCard = previousCard;
         }
         else{
-            JOptionPane.showMessageDialog(null, "This card can't be placed! Card must match the suit or number of the previous card", "Invalid move!", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "This card can't be placed! Card must match the suit or value of the previous card", "Invalid move!", JOptionPane.ERROR_MESSAGE);
         }
 
     return placedCard;
     } //end of playACard method
+
+    //adds Card object to button
+    public void playerCardFunction(){
+
+    }
 
     //write file
     public static void saveInfo(ArrayList<Player> playerInfo){
@@ -337,4 +378,4 @@ public class LivesGUI extends JFrame implements LivesIn{
     }// end of PickUpCardEventHandler
 
 
-}
+}//end of LivesGUI
