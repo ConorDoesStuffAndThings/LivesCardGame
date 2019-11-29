@@ -34,8 +34,7 @@ public class LivesGUI extends JFrame implements LivesIn{
     ArrayList<Player> playerInfo;
 
     public LivesGUI() {
-        generateCards();
-        generatePlayerCards();
+
 
         //setting up window
         windowForLives = new JFrame("Lives");
@@ -100,11 +99,12 @@ public class LivesGUI extends JFrame implements LivesIn{
 
         //make into array
 
-        playerCardBtns = new JButton[19];
+
         player2CardBtns = new JButton[19];
-        //default xVal for button
 
 
+        generateCards();
+        generatePlayerCards();
         //setting cards
 
         /*
@@ -147,58 +147,60 @@ public class LivesGUI extends JFrame implements LivesIn{
     //method to generate cards
     public void generateCards(){
         cards = new ArrayList<Card>();
-        cards.add(new Card("Clubs", "Ace", true, new ImageIcon("/images/AC.png")));
-        cards.add(new Card("Clubs", "Two", true, new ImageIcon("/images/2C.png")));
-        cards.add(new Card("Clubs", "Three", true, new ImageIcon("/images/3C.png")));
-        cards.add(new Card("Clubs", "Four", true, new ImageIcon("/images/4C.png")));
-        cards.add(new Card("Clubs", "Five", true, new ImageIcon("/images/5C.png")));
-        cards.add(new Card("Clubs", "Six", true, new ImageIcon("/images/6C.png")));
-        cards.add(new Card("Clubs", "Seven", true, new ImageIcon("/images/7C.png")));
-        cards.add(new Card("Clubs", "Eight", true, new ImageIcon("/images/8C.png")));
-        cards.add(new Card("Clubs", "Nine", true, new ImageIcon("/images/9C.png")));
-        cards.add(new Card("Clubs", "Ten", true, new ImageIcon("/images/10C.png")));
-        cards.add(new Card("Clubs", "King", true, new ImageIcon("/images/KC.png")));
-        cards.add(new Card("Clubs", "Queen", true, new ImageIcon("/images/QC.png")));
-        cards.add(new Card("Clubs", "Jack", true, new ImageIcon("/images/JC.png")));
-        cards.add(new Card("Hearts", "Ace", true, new ImageIcon("/images/AH.png")));
-        cards.add(new Card("Hearts", "Two", true, new ImageIcon("/images/2H.png")));
-        cards.add(new Card("Hearts", "Three", true, new ImageIcon("/images/3H.png")));
-        cards.add(new Card("Hearts", "Four", true, new ImageIcon("/images/4H.png")));
-        cards.add(new Card("Hearts", "Five", true, new ImageIcon("/images/5H.png")));
-        cards.add(new Card("Hearts", "Six", true, new ImageIcon("/images/6H.png")));
-        cards.add(new Card("Hearts", "Seven", true, new ImageIcon("/images/7H.png")));
-        cards.add(new Card("Hearts", "Eight", true, new ImageIcon("/images/8H.png")));
-        cards.add(new Card("Hearts", "Nine", true, new ImageIcon("/images/9H.png")));
-        cards.add(new Card("Hearts", "Ten", true, new ImageIcon("/images/10H.png")));
-        cards.add(new Card("Hearts", "King", true, new ImageIcon("/images/KH.png")));
-        cards.add(new Card("Hearts", "Queen", true, new ImageIcon("/images/QH.png")));
-        cards.add(new Card("Hearts", "Jack", true, new ImageIcon("/images/JH.png")));
-        cards.add(new Card("Spades", "Ace", true, new ImageIcon("/images/AS.png")));
-        cards.add(new Card("Spades", "Two", true, new ImageIcon("/images/2S.png")));
-        cards.add(new Card("Spades", "Three", true, new ImageIcon("/images/3S.png")));
-        cards.add(new Card("Spades", "Four", true, new ImageIcon("/images/4S.png")));
-        cards.add(new Card("Spades", "Five", true, new ImageIcon("/images/5S.png")));
-        cards.add(new Card("Spades", "Six", true, new ImageIcon("/images/6S.png")));
-        cards.add(new Card("Spades", "Seven", true, new ImageIcon("/images/7S.png")));
-        cards.add(new Card("Spades", "Eight", true, new ImageIcon("/images/8S.png")));
-        cards.add(new Card("Spades", "Nine", true, new ImageIcon("/images/9S.png")));
-        cards.add(new Card("Spades", "Ten", true, new ImageIcon("/images/10S.png")));
-        cards.add(new Card("Spades", "King", true, new ImageIcon("/images/KS.png")));
-        cards.add(new Card("Spades", "Queen", true, new ImageIcon("/images/QS.png")));
-        cards.add(new Card("Spades", "Jack", true, new ImageIcon("/images/JS.png")));
-        cards.add(new Card("Diamonds", "Ace", true, new ImageIcon("/images/AD.png")));
-        cards.add(new Card("Diamonds", "Two", true, new ImageIcon("/images/2D.png")));
-        cards.add(new Card("Diamonds", "Three", true, new ImageIcon("/images/3D.png")));
-        cards.add(new Card("Diamonds", "Four", true, new ImageIcon("/images/4D.png")));
-        cards.add(new Card("Diamonds", "Five", true, new ImageIcon("/images/5D.png")));
-        cards.add(new Card("Diamonds", "Six", true, new ImageIcon("/images/6D.png")));
-        cards.add(new Card("Diamonds", "Seven", true, new ImageIcon("/images/7D.png")));
-        cards.add(new Card("Diamonds", "Eight", true, new ImageIcon("/images/8D.png")));
-        cards.add(new Card("Diamonds", "Nine", true, new ImageIcon("/images/9D.png")));
-        cards.add(new Card("Diamonds", "Ten", true, new ImageIcon("/images/10D.png")));
-        cards.add(new Card("Diamonds", "King", true, new ImageIcon("/images/KD.png")));
-        cards.add(new Card("Diamonds", "Queen", true, new ImageIcon("/images/QD.png")));
-        cards.add(new Card("Diamonds", "Jack", true, new ImageIcon("/images/JD.png")));
+
+        //JB told me to throw in (this.getClass().getResource()), I think I would've figured it out even if he hadn't told me, his exact comment was "JB made some minor changes to this code to get it working"
+        cards.add(new Card("Clubs", "Ace", true, new ImageIcon(this.getClass().getResource("/images/AC.png"))));
+        cards.add(new Card("Clubs", "Two", true, new ImageIcon(this.getClass().getResource("/images/2C.png"))));
+        cards.add(new Card("Clubs", "Three", true, new ImageIcon(this.getClass().getResource("/images/3C.png"))));
+        cards.add(new Card("Clubs", "Four", true, new ImageIcon(this.getClass().getResource("/images/4C.png"))));
+        cards.add(new Card("Clubs", "Five", true, new ImageIcon(this.getClass().getResource("/images/5C.png"))));
+        cards.add(new Card("Clubs", "Six", true, new ImageIcon(this.getClass().getResource("/images/6C.png"))));
+        cards.add(new Card("Clubs", "Seven", true, new ImageIcon(this.getClass().getResource("/images/7C.png"))));
+        cards.add(new Card("Clubs", "Eight", true, new ImageIcon(this.getClass().getResource("/images/8C.png"))));
+        cards.add(new Card("Clubs", "Nine", true, new ImageIcon(this.getClass().getResource("/images/9C.png"))));
+        cards.add(new Card("Clubs", "Ten", true, new ImageIcon(this.getClass().getResource("/images/10C.png"))));
+        cards.add(new Card("Clubs", "King", true, new ImageIcon(this.getClass().getResource("/images/KC.png"))));
+        cards.add(new Card("Clubs", "Queen", true, new ImageIcon(this.getClass().getResource("/images/QC.png"))));
+        cards.add(new Card("Clubs", "Jack", true, new ImageIcon(this.getClass().getResource("/images/JC.png"))));
+        cards.add(new Card("Hearts", "Ace", true, new ImageIcon(this.getClass().getResource("/images/AH.png"))));
+        cards.add(new Card("Hearts", "Two", true, new ImageIcon(this.getClass().getResource("/images/2H.png"))));
+        cards.add(new Card("Hearts", "Three", true, new ImageIcon(this.getClass().getResource("/images/3H.png"))));
+        cards.add(new Card("Hearts", "Four", true, new ImageIcon(this.getClass().getResource("/images/4H.png"))));
+        cards.add(new Card("Hearts", "Five", true, new ImageIcon(this.getClass().getResource("/images/5H.png"))));
+        cards.add(new Card("Hearts", "Six", true, new ImageIcon(this.getClass().getResource("/images/6H.png"))));
+        cards.add(new Card("Hearts", "Seven", true, new ImageIcon(this.getClass().getResource("/images/7H.png"))));
+        cards.add(new Card("Hearts", "Eight", true, new ImageIcon(this.getClass().getResource("/images/8H.png"))));
+        cards.add(new Card("Hearts", "Nine", true, new ImageIcon(this.getClass().getResource("/images/9H.png"))));
+        cards.add(new Card("Hearts", "Ten", true, new ImageIcon(this.getClass().getResource("/images/10H.png"))));
+        cards.add(new Card("Hearts", "King", true, new ImageIcon(this.getClass().getResource("/images/KH.png"))));
+        cards.add(new Card("Hearts", "Queen", true, new ImageIcon(this.getClass().getResource("/images/QH.png"))));
+        cards.add(new Card("Hearts", "Jack", true, new ImageIcon(this.getClass().getResource("/images/JH.png"))));
+        cards.add(new Card("Spades", "Ace", true, new ImageIcon(this.getClass().getResource("/images/AS.png"))));
+        cards.add(new Card("Spades", "Two", true, new ImageIcon(this.getClass().getResource("/images/2S.png"))));
+        cards.add(new Card("Spades", "Three", true, new ImageIcon(this.getClass().getResource("/images/3S.png"))));
+        cards.add(new Card("Spades", "Four", true, new ImageIcon(this.getClass().getResource("/images/4S.png"))));
+        cards.add(new Card("Spades", "Five", true, new ImageIcon(this.getClass().getResource("/images/5S.png"))));
+        cards.add(new Card("Spades", "Six", true, new ImageIcon(this.getClass().getResource("/images/6S.png"))));
+        cards.add(new Card("Spades", "Seven", true, new ImageIcon(this.getClass().getResource("/images/7S.png"))));
+        cards.add(new Card("Spades", "Eight", true, new ImageIcon(this.getClass().getResource("/images/8S.png"))));
+        cards.add(new Card("Spades", "Nine", true, new ImageIcon(this.getClass().getResource("/images/9S.png"))));
+        cards.add(new Card("Spades", "Ten", true, new ImageIcon(this.getClass().getResource("/images/10S.png"))));
+        cards.add(new Card("Spades", "King", true, new ImageIcon(this.getClass().getResource("/images/KS.png"))));
+        cards.add(new Card("Spades", "Queen", true, new ImageIcon(this.getClass().getResource("/images/QS.png"))));
+        cards.add(new Card("Spades", "Jack", true, new ImageIcon(this.getClass().getResource("/images/JS.png"))));
+        cards.add(new Card("Diamonds", "Ace", true, new ImageIcon(this.getClass().getResource("/images/AD.png"))));
+        cards.add(new Card("Diamonds", "Two", true, new ImageIcon(this.getClass().getResource("/images/2D.png"))));
+        cards.add(new Card("Diamonds", "Three", true, new ImageIcon(this.getClass().getResource("/images/3D.png"))));
+        cards.add(new Card("Diamonds", "Four", true, new ImageIcon(this.getClass().getResource("/images/4D.png"))));
+        cards.add(new Card("Diamonds", "Five", true, new ImageIcon(this.getClass().getResource("/images/5D.png"))));
+        cards.add(new Card("Diamonds", "Six", true, new ImageIcon(this.getClass().getResource("/images/6D.png"))));
+        cards.add(new Card("Diamonds", "Seven", true, new ImageIcon(this.getClass().getResource("/images/7D.png"))));
+        cards.add(new Card("Diamonds", "Eight", true, new ImageIcon(this.getClass().getResource("/images/8D.png"))));
+        cards.add(new Card("Diamonds", "Nine", true, new ImageIcon(this.getClass().getResource("/images/9D.png"))));
+        cards.add(new Card("Diamonds", "Ten", true, new ImageIcon(this.getClass().getResource("/images/10D.png"))));
+        cards.add(new Card("Diamonds", "King", true, new ImageIcon(this.getClass().getResource("/images/KD.png"))));
+        cards.add(new Card("Diamonds", "Queen", true, new ImageIcon(this.getClass().getResource("/images/QD.png"))));
+        cards.add(new Card("Diamonds", "Jack", true, new ImageIcon(this.getClass().getResource("/images/JD.png"))));
     }//end of generateCards method
 
     public Card dealACard(){
@@ -211,15 +213,15 @@ public class LivesGUI extends JFrame implements LivesIn{
     }//end of dealACard method
 
     public void generatePlayerCards(){
+        playerCardBtns = new JButton[19];
         int xVal=10;
-
         for(int i=0; i < playerCardBtns.length; i++)
         {
 
-
             //playerCardBtns[i] = new JButton((Icon) cards.get(i));
-            //pickUpCardBtn.setIcon(new ImageIcon(this.getClass().getResource("/images/red_back.png")));
-            playerCardBtns[i] = new JButton(cards.get(i).getImage());
+            //example pickUpCardBtn.setIcon(new ImageIcon(this.getClass().getResource("/images/red_back.png")));
+            playerCardBtns[i] = new JButton();
+            playerCardBtns[i].setIcon(cards.get(i).getImage());
             //place button playerCards panel
             playerCards.add(playerCardBtns[i]);
             playerCardBtns[i].setBounds(xVal, 5, 196, 300);
@@ -238,7 +240,7 @@ public class LivesGUI extends JFrame implements LivesIn{
 
             //playerCardBtns[i] = new JButton((Icon) cards.get(i));
             //pickUpCardBtn.setIcon(new ImageIcon(this.getClass().getResource("/images/red_back.png")));
-            player2CardBtns[i] = new JButton(cards.get(i).getImage());
+            player2CardBtns[i] = new JButton(new ImageIcon(this.getClass().getResource("/images/red_back.png")));
             //place button playerCards panel
             player2Cards.add(player2CardBtns[i]);
             player2CardBtns[i].setBounds(xVal, 5, 196, 300);
