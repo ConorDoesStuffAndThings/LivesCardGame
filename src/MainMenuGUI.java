@@ -10,6 +10,8 @@ public class MainMenuGUI {
     JButton statButton;
     JButton exitButton;
     JFrame mainMenuWindow;
+    LivesGUI livesGUI;
+
     Card[] cards52 = new Card[52];
     public MainMenuGUI(){
         mainMenuWindow = new JFrame("Main Menu - Lives");
@@ -47,7 +49,7 @@ public class MainMenuGUI {
 
         public void actionPerformed(ActionEvent e)
         {
-            new LivesGUI();
+            livesGUI = new LivesGUI();
             mainMenuWindow.setVisible(false);
         }
     }// end of PickUpCardEventHandler
@@ -58,12 +60,7 @@ public class MainMenuGUI {
         {
 
             //got help from Ryan Madigan (3rd year Games Development)
-           ArrayList<Player> playerStats = new ArrayList();
-
-
-            LivesGUI.saveInfo(playerStats);
-
-            ArrayList<Player> playerDetails =  LivesGUI.statisticsWinLose();
+            ArrayList<Player> playerDetails =  livesGUI.readInfo();
 
             JTextArea playerInfo = new JTextArea();
             playerInfo.setText("All Player Stats");
