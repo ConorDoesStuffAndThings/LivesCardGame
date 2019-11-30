@@ -37,7 +37,7 @@ public class LivesGUI extends JFrame implements LivesIn{
 
 
 
-
+    //LivesGUI constructor
     public LivesGUI() {
 
         setUpGUI();
@@ -45,13 +45,6 @@ public class LivesGUI extends JFrame implements LivesIn{
         generatePlayerCards();
         generatePlayer2Cards();
         cardOnStack();
-
-
-
-
-
-
-        //place players cards on panel (playerCards) and make them buttons that change value when player picks up new card
 
     }//end of LivesGUI constructor
 
@@ -74,14 +67,18 @@ public class LivesGUI extends JFrame implements LivesIn{
 
         // playerCards.setLayout(new BoxLayout(playerCards,BoxLayout.LINE_AXIS));
 
-        playerCards.setBackground(Color.ORANGE);
-        player2Cards.setBackground(Color.PINK);
+        //used https://www.colorspire.com/rgb-color-wheel/ to get RGB colours
+        playerCards.setBackground(new Color(40, 43, 119));
+        player2Cards.setBackground(new Color(40, 43, 119));
         stackOfCardsPnl = new JPanel();
         stackOfCardsPnl.setLayout(new GridLayout(1,1 ));
         stackOfCardsPnl.setBackground(Color.GREEN);
 
         //adapted from java API
+        //windowForLives.setBackground();
         windowForLives.setResizable(false);
+
+        windowForLives.getContentPane().setBackground(new Color(7, 10, 84));
 
         //line of code adapted from https://stackoverflow.com/questions/4801386/how-do-i-add-an-image-to-a-jbutton
         pickUpCardBtn.setIcon(new ImageIcon(this.getClass().getResource("/images/blue_back.jpg")));
