@@ -37,6 +37,7 @@ public class LivesGUI extends JFrame implements LivesIn{
 
 
 
+
     //LivesGUI constructor
     public LivesGUI() {
 
@@ -45,6 +46,8 @@ public class LivesGUI extends JFrame implements LivesIn{
         generatePlayerCards();
         generatePlayer2Cards();
         cardOnStack();
+        pickUpACard();
+
 
     }//end of LivesGUI constructor
 
@@ -71,7 +74,7 @@ public class LivesGUI extends JFrame implements LivesIn{
         playerCards.setBackground(new Color(40, 43, 119));
         player2Cards.setBackground(new Color(40, 43, 119));
         stackOfCardsPnl = new JPanel();
-        stackOfCardsPnl.setLayout(new GridLayout(1,1 ));
+        stackOfCardsPnl.setLayout(null);
         stackOfCardsPnl.setBackground(Color.GREEN);
 
         //adapted from java API
@@ -105,7 +108,7 @@ public class LivesGUI extends JFrame implements LivesIn{
 
         player2Cards.setBounds(20,10,1500,210);
         playerCards.setBounds(20, 500, 1500, 210);
-        stackOfCardsPnl.setBounds(600, 250, 130, 210);
+        stackOfCardsPnl.setBounds(600, 250, 140, 210);
 
         //add buttons and label to the JFrame
         windowForLives.add(pickUpCardBtn);
@@ -185,12 +188,14 @@ public class LivesGUI extends JFrame implements LivesIn{
     //method to deal a card
     public Card dealACard(){
         Card card;
+
         int bound = 52;
         //random number generator
         Random r = new Random();
         int i = r.nextInt(bound);
         card = cards.get(i);
         card.setAvailable(false);
+
 
         //removes card i from deck so it's not called again
         cards.remove(i);
@@ -204,6 +209,13 @@ public class LivesGUI extends JFrame implements LivesIn{
         else
             return null;
     }//end of dealACard method
+
+    public void pickUpACard(){
+        //set at 15 because 7 for starting off for player and player 2
+        int j=15;
+        playerCardBtns[j].setIcon(dealACard().getImage());
+        j++;
+    }
 
     public void generatePlayerCards(){
         playerCardBtns = new JButton[19];
@@ -248,20 +260,15 @@ public class LivesGUI extends JFrame implements LivesIn{
 
     //adds a card to stackOfCardsPnl
     public void cardOnStack(){
-            /*cardForStackLbl.setIcon(dealACard().getImage());
-         cardForStackLbl = new JButton();
-        //place label on stackOfCardsPnl panel
-        stackOfCardsPnl.add(cardForStackLbl);
-        stackOfCardsPnl.setBounds(1,1,130,200);*/
 
-
-        //playerCardBtns[i] = new JButton((Icon) cards.get(i));
         //example pickUpCardBtn.setIcon(new ImageIcon(this.getClass().getResource("/images/blue_back.jpg")));
         cardForStackLbl = new JLabel();
         cardForStackLbl.setIcon(dealACard().getImage());
+
         //place button playerCards panel
-        playerCards.add(cardForStackLbl);
-        cardForStackLbl.setBounds(5, 5, 130, 200);
+        stackOfCardsPnl.add(cardForStackLbl);
+        cardForStackLbl.setBounds(5, 5, 150, 200);
+
     }//end of cardOnStack
 
     //method to deals a card
@@ -336,34 +343,35 @@ public class LivesGUI extends JFrame implements LivesIn{
     //method to check and enforce rules
     public void checkLivesRules(){
         Card currentCard = dealACard();
-        JOptionPane.showMessageDialog(null, currentCard);
+
+        //JOptionPane.showMessageDialog(null, currentCard);
         if (currentCard == null){
             JOptionPane.showMessageDialog(null, "Out of cards! Game over!", "GameOver!", JOptionPane.WARNING_MESSAGE);
         }//end of if
         else{
             //add in card abilities
             if(currentCard.getValueOfCard().equals("Two")){
-                JOptionPane.showMessageDialog(null, "Next player gets 2 more cards " + currentCard.isAvailable());
+                JOptionPane.showMessageDialog(null, "Next player gets 2 more cards ", "Your card", 1, currentCard.getImage());
             }
 
             else if(currentCard.getValueOfCard().equals("Jack")){
-                JOptionPane.showMessageDialog(null, "Next player in rotation gets skipped "+ currentCard.isAvailable());
+                JOptionPane.showMessageDialog(null, "Next player in rotation gets skipped ", "Your card", 1, currentCard.getImage());
             }
 
             else if(currentCard.getValueOfCard().equals("King")){
-                JOptionPane.showMessageDialog(null, "The Direction gets reversed "+ currentCard.isAvailable());
+                JOptionPane.showMessageDialog(null, "The Direction gets reversed ", "Your card", 1, currentCard.getImage());
             }
 
             else if(currentCard.getValueOfCard().equals("Ace")){
-                JOptionPane.showMessageDialog(null, "Player who placed card can chose what suit the next card played is "+ currentCard.isAvailable());
+                JOptionPane.showMessageDialog(null, "Player who placed card can chose what suit the next card played is ", "Your card", 1, currentCard.getImage());
             }
 
             else if(currentCard.getValueOfCard().equals("Queen")){
-                JOptionPane.showMessageDialog(null, "The next player must must pick up four cards" + currentCard.isAvailable());
+                JOptionPane.showMessageDialog(null, "The next player must must pick up four cards", "Your card", 1, currentCard.getImage());
             }
 
             else{
-                JOptionPane.showMessageDialog(null, "Play as standard "+ currentCard.isAvailable());
+                JOptionPane.showMessageDialog(null, "", "Your card", 1, currentCard.getImage());
             }
         }//end of else
 
