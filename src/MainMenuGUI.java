@@ -5,14 +5,39 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+/**
+ * The type Main menu gui.
+ */
 public class MainMenuGUI {
+    /**
+     * The Play button.
+     */
     JButton playButton;
+    /**
+     * The Stat button.
+     */
     JButton statButton;
+    /**
+     * The Exit button.
+     */
     JButton exitButton;
+    /**
+     * The Main menu window.
+     */
     JFrame mainMenuWindow;
+    /**
+     * The Lives gui.
+     */
     LivesGUI livesGUI;
 
+    /**
+     * The Cards 52.
+     */
     Card[] cards52 = new Card[52];
+
+    /**
+     * Instantiates a new Main menu gui.
+     */
     public MainMenuGUI(){
         mainMenuWindow = new JFrame("Main Menu - Lives");
         mainMenuWindow.setLayout(null);

@@ -5,7 +5,15 @@ import java.io.FileNotFoundException;
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
 
+/**
+ * The type Cards driver.
+ */
 class CardsDriver {
+    /**
+     * Main.
+     *
+     * @param args the args
+     */
     public static void main(String args[]) {
 
         MainMenuGUI menuGUI = new MainMenuGUI();

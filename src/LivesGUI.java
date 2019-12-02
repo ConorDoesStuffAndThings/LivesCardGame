@@ -20,30 +20,82 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * The type Lives gui.
+ */
 public class LivesGUI extends JFrame implements LivesIn{
+    /**
+     * The F.
+     */
     File f;
+    /**
+     * The Read player info.
+     */
     ArrayList<Player> readPlayerInfo;
 
+    /**
+     * The Pick up card btn.
+     */
     JButton pickUpCardBtn;
+    /**
+     * The Exit btn.
+     */
     JButton exitBtn;
+    /**
+     * The Player card btns.
+     */
     JButton[] playerCardBtns;
+    /**
+     * The Player 2 card btns.
+     */
     JButton[] player2CardBtns;
+    /**
+     * The Player 2 cards.
+     */
     JPanel player2Cards;
+    /**
+     * The Window for lives.
+     */
     JFrame windowForLives;
+    /**
+     * The Player cards.
+     */
     JPanel playerCards;
+    /**
+     * The Stack of cards pnl.
+     */
     JPanel stackOfCardsPnl;
+    /**
+     * The Card for stack lbl.
+     */
     JLabel cardForStackLbl;
+    /**
+     * The Cards.
+     */
     ArrayList<Card> cards;
+    /**
+     * The Last card btn.
+     */
     JButton lastCardBtn;
-    //used later down, wouldn't work in for loop in dealACard()
+    /**
+     * The X val.
+     */
+//used later down, wouldn't work in for loop in dealACard()
     int xVal=510;
+    /**
+     * The Player turn.
+     */
     int playerTurn=0;
+    /**
+     * The X valp 1.
+     */
     int xValp1=510;
 
 
-
-
-    //LivesGUI constructor
+    /**
+     * Instantiates a new Lives gui.
+     */
+//LivesGUI constructor
     public LivesGUI() {
 
         setUpGUI();
@@ -57,7 +109,10 @@ public class LivesGUI extends JFrame implements LivesIn{
     }//end of LivesGUI constructor
 
 
-    //deals with the GUI setup
+    /**
+     * Sets up gui.
+     */
+//deals with the GUI setup
     public void setUpGUI(){
         //setting up window
         windowForLives = new JFrame("Lives");
@@ -221,6 +276,9 @@ public class LivesGUI extends JFrame implements LivesIn{
             return null;
     }//end of dealACard method
 
+    /**
+     * Pick up a card.
+     */
     public void pickUpACard(){
         //set at 15 because 7 for starting off for player and player 2
         int j=15;
@@ -228,6 +286,9 @@ public class LivesGUI extends JFrame implements LivesIn{
         j++;
     }
 
+    /**
+     * Generate player cards.
+     */
     public void generatePlayerCards(){
         playerCardBtns = new JButton[19];
         int xVal=10;
@@ -247,6 +308,9 @@ public class LivesGUI extends JFrame implements LivesIn{
         }//end of for loop
     }//end of generatePlayerCards
 
+    /**
+     * Generate player 2 cards.
+     */
     public void generatePlayer2Cards(){
         int xVal=10;
 
@@ -269,7 +333,10 @@ public class LivesGUI extends JFrame implements LivesIn{
         }//end of for loop
     }//end of generatePlayerCards
 
-    //adds a card to stackOfCardsPnl
+    /**
+     * Card on stack.
+     */
+//adds a card to stackOfCardsPnl
     public void cardOnStack(){
 
         //example pickUpCardBtn.setIcon(new ImageIcon(this.getClass().getResource("/images/blue_back.jpg")));
@@ -285,7 +352,14 @@ public class LivesGUI extends JFrame implements LivesIn{
     //method to deals a card
 
 
-    //for player to place a card
+    /**
+     * Play a card card.
+     *
+     * @param placedCard   the placed card
+     * @param previousCard the previous card
+     * @return the card
+     */
+//for player to place a card
     public Card playACard(Card placedCard, Card previousCard){
         //Card card=cards.get(32);
 
@@ -301,12 +375,20 @@ public class LivesGUI extends JFrame implements LivesIn{
     return placedCard;
     } //end of playACard method
 
-    //adds Card object to button
+    /**
+     * Player card function.
+     */
+//adds Card object to button
     public void playerCardFunction(){
 
     }
 
-    //write file
+    /**
+     * Save info.
+     *
+     * @param writePlayerInfo the write player info
+     */
+//write file
     public void saveInfo(ArrayList<Player> writePlayerInfo){
         try{
                 f = new File("playerstats.dat");
@@ -324,7 +406,13 @@ public class LivesGUI extends JFrame implements LivesIn{
         }
 
         }
-    //read file
+
+    /**
+     * Read info array list.
+     *
+     * @return the array list
+     */
+//read file
     public static ArrayList<Player> readInfo()
     {
         ArrayList<Player> readPlayerInfo = new ArrayList<>();
@@ -427,6 +515,9 @@ public class LivesGUI extends JFrame implements LivesIn{
     }//end of checkLivesRules
 
 
+    /**
+     * Add card to btns.
+     */
     public void addCardToBtns(){
 
     }
