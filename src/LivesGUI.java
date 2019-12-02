@@ -34,6 +34,11 @@ public class LivesGUI extends JFrame implements LivesIn{
     JPanel stackOfCardsPnl;
     JLabel cardForStackLbl;
     ArrayList<Card> cards;
+    JButton lastCardBtn;
+    //used later down, wouldn't work in for loop in dealACard()
+    int xVal=510;
+    int playerTurn=0;
+    int xValp1=510;
 
 
 
@@ -65,6 +70,7 @@ public class LivesGUI extends JFrame implements LivesIn{
         player2Cards.setLayout(null);
         playerCards = new JPanel();
         playerCards.setLayout(null);
+        lastCardBtn = new JButton("Last Card!");
         //playerCards.setLayout(new GridLayout (1,1));
         //playerCards.setLayout(new BoxLayout().createHorizontalBox();
 
@@ -87,7 +93,8 @@ public class LivesGUI extends JFrame implements LivesIn{
         pickUpCardBtn.setIcon(new ImageIcon(this.getClass().getResource("/images/blue_back.jpg")));
 
         //call event handlers
-        PickUpCardEventHandler pickUpHandler = new PickUpCardEventHandler();
+        pickUpCardEventHandler pickUpHandler = new pickUpCardEventHandler();
+        lastCardEventHandler lastCardHandler = new lastCardEventHandler();
         backEventHandler exitHandler = new backEventHandler();
 
 
@@ -96,6 +103,7 @@ public class LivesGUI extends JFrame implements LivesIn{
         //add action listener to button
         pickUpCardBtn.addActionListener(pickUpHandler);
         exitBtn.addActionListener(exitHandler);
+        lastCardBtn.addActionListener(lastCardHandler);
 
 
 
@@ -106,12 +114,15 @@ public class LivesGUI extends JFrame implements LivesIn{
         exitBtn.setSize(60,30);
         exitBtn.setLocation(1440,1);
 
+        lastCardBtn.setBounds(20,350, 100, 30);
+
         player2Cards.setBounds(20,10,1500,210);
         playerCards.setBounds(20, 500, 1500, 210);
         stackOfCardsPnl.setBounds(600, 250, 140, 210);
 
         //add buttons and label to the JFrame
         windowForLives.add(pickUpCardBtn);
+        windowForLives.add(lastCardBtn);
         windowForLives.add(exitBtn);
         windowForLives.add(player2Cards);
         windowForLives.add(playerCards);
@@ -374,25 +385,68 @@ public class LivesGUI extends JFrame implements LivesIn{
                 JOptionPane.showMessageDialog(null, "", "Your card", 1, currentCard.getImage());
             }
         }//end of else
+            playerTurn++;
+
+        //picks up card for player 1
+            if(playerTurn % 2 == 0){
+                int i = 8;
+                playerCardBtns[i] = new JButton();
+                playerCardBtns[i].setIcon(currentCard.getImage());
+                //place button playerCards panel
+                playerCards.add(playerCardBtns[i]);
+                playerCardBtns[i].setBounds(xVal, 5, 130, 200);
+
+                //moves the card to the right
+
+                //using xVal from scope
+                xVal+=70;
+                i++;
+            }
+
+            //picks up card for player2
+            else if(playerTurn % 2 != 0){
+                int j = 8;
+
+                player2CardBtns[j] = new JButton();
+                player2CardBtns[j].setIcon(new ImageIcon(this.getClass().getResource("/images/blue_back.jpg")));
+                //place button playerCards panel
+                player2Cards.add(player2CardBtns[j]);
+                player2CardBtns[j].setBounds(xVal, 5, 130, 200);
+
+                //moves the card to the right
+
+                //using xVal from scope
+                xValp1+=70;
+                j++;
+
+            }
+
+
 
 
     }//end of checkLivesRules
 
 
+    public void addCardToBtns(){
 
-
-
-
-
+    }
     //EventHandler for PickUpCard
-    private class PickUpCardEventHandler implements ActionListener{
+    private class pickUpCardEventHandler implements ActionListener{
 
         public void actionPerformed(ActionEvent e)
         {
             checkLivesRules();
         }
-    }// end of PickUpCardEventHandler
+    }// end of pickUpCardEventHandler
 
+    //EventHandler for PickUpCard
+    private class lastCardEventHandler implements ActionListener{
+
+        public void actionPerformed(ActionEvent e)
+        {
+            JOptionPane.showMessageDialog(null, "You've just called last card!");
+        }
+    }// end of pickUpCardEventHandler
 
     //handler to go to main menu
     private class backEventHandler implements ActionListener {
@@ -405,7 +459,7 @@ public class LivesGUI extends JFrame implements LivesIn{
             //hides window
             windowForLives.setVisible(false);
         }
-    }// end of PickUpCardEventHandler
+    }// end of backEventHandler
 
 
 }//end of LivesGUI
